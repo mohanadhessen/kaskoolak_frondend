@@ -1,0 +1,50 @@
+.navbar {
+    width: 100%;
+    display: flex;
+}
+
+.sideNav {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+    width: fit-content;
+    padding: 16px 0;
+}
+
+.topSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.iconContainer {
+    grid-row: 2;
+    align-self: center;
+    justify-self: center;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.buttomContainer {
+    grid-row: 3;
+    justify-self: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-bottom: 16px;
+}
+
+.notificationContainer {
+    margin-left: auto;
+    padding: 16px;
+}
+
+.actions{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}

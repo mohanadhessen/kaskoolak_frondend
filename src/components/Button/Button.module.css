@@ -1,0 +1,19 @@
+
+.primaryButton {
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  background: var(--color-background);
+  border:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  position:relative;
+  
+}
+
+
+
+
+

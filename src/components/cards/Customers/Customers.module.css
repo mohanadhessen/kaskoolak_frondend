@@ -1,0 +1,29 @@
+.customers {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    height: 340px;
+    width: 408px;
+}
+
+
+.labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}

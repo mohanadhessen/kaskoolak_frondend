@@ -1,0 +1,6 @@
+.Shipment{
+    background-color: var(--color-background);
+    color: var(--color-accent);
+    height: 680px;
+    width: 408px;
+}

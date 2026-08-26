@@ -1,0 +1,119 @@
+.orders {
+    background-color: var(--color-accent);
+    color: var(--color-secondary);
+    height: 340px;
+    width: 408px;
+}
+
+.timeline {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    align-self: stretch;
+    justify-content: space-between;
+    min-height: 0;
+    position: relative; 
+}
+
+.chartOverlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.solidLine,
+.dashLine {
+    height: 100%;
+    width: 1px;
+}
+
+.solidLine {
+    background-color: color-mix(
+        in srgb,
+        var(--color-secondary) 40%,
+        transparent
+    );
+}
+
+.dashLine {
+    background: repeating-linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--color-secondary) 10%, transparent) 0px,
+        color-mix(in srgb, var(--color-secondary) 10%, transparent) 4px,
+        transparent 4px,
+        transparent 8px
+    );
+}
+
+.timelineLabels {
+    height: 30px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 12px;
+    color: color-mix(in srgb, var(--color-secondary) 55%, transparent);
+}
+
+.timelineActions {
+    position: absolute;
+    top: 38px;
+    right: 38px;
+    display: inline-flex;
+    gap: 2px;
+    padding: 3px;
+    border: 1px solid color-mix(in srgb, var(--color-secondary) 12%, transparent);
+    background-color: transparent;
+    border-radius: 8px;
+}
+
+.timelineActions button {
+    color: color-mix(in srgb, var(--color-secondary) 65%, transparent);
+    background-color: transparent;
+    border: 1px solid transparent;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 9px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.timelineActions button:hover {
+    background-color: color-mix(in srgb, var(--color-secondary) 10%, transparent);
+    color: var(--color-secondary);
+}
+
+.timelineActions button:focus {
+    background-color: var(--color-secondary);
+    color: var(--color-accent);
+    outline: none;
+}
+
+
+
+.tooltip {
+    background: var(--color-surface, #1e1e2d);
+    border: 1px solid var(--color-secondary);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 12px;
+    color: #fff;
+    pointer-events: none;
+}
+
+.tooltipLabel {
+    opacity: 0.7;
+    margin-bottom: 2px;
+}
+
+.tooltipValue {
+    font-weight: 600;
+}
+
+
+.chartOverlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: auto;
+}
