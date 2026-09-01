@@ -1,16 +1,52 @@
-# React + Vite
+# Kaskoolak Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A modern, responsive e-commerce management and analytics dashboard built with React, Vite, and Recharts.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Responsive Analytics Dashboard**: Key metric tracking cards for Revenue, Customers, and Cash on Delivery with fluid scaling across all desktop monitor sizes.
+- **Shipment Overview**: Visual donut charts powered by Recharts with dynamic status breakdown (Delivered, In Transit, Exceptions, Returns).
+- **Adaptive Layout**: Grid and flexbox layout designed to maintain clean alignment and prevent viewport overflow.
+- **Modern Sidebar & Navigation**: Collapsible sidebar with navigation items and language selector.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Framework**: React 19
+- **Bundler**: Vite
+- **Icons**: Lucide React
+- **Charts**: Recharts
+- **Styling**: CSS Modules
 
-## Expanding the Oxlint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+### Prerequisites
+
+- Node.js (version 18+ recommended)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/mohanadhessen/kaskoolak_frondend.git
+   ```
+
+2. Navigate into the project directory:
+   ```bash
+   cd kaskoolak_frondend
+   ```
+
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+5. Build for production:
+   ```bash
+   npm run build
+   ```

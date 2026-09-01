@@ -1,13 +1,29 @@
 :root {
   --color-primary: #112D4E;
-  --color-secondary: #dbdbdb;
+  --color-secondary: #DBE2EF;
   --color-accent: #222026;
-  --color-background: #ffffff;
-  
+  --color-background: #E8EBEF;
+  --color-card: #ffffff;
+
+
+  --color-brand: #112D4E;
+
   --color-returned: #7A3E48;
   --color-shipped: #112D4E;
   --color-transit: #4F6D8A;
+  --color-exception: #A65D4D;
+
+  font-family: 'Google Sans', sans-serif;
+
 }
+
+
+
+svg {
+  stroke: #112D4E;
+}
+
+
 
 *,
 *::before,
@@ -24,7 +40,7 @@ body,
 }
 
 body {
-  background-color: var(--color-secondary);
+  background-color: var(--color-background);
 }
 
 h1,
@@ -57,4 +73,10 @@ svg {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+
+button {
+  all: unset;
+  cursor: pointer;
 }

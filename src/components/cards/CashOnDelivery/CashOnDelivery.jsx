@@ -1,18 +1,18 @@
-import styles from "./Customers.module.css";
+import styles from "./CashOnDelivery.module.css";
 import DashboardCard from "../../DashboardCard/DashboardCard";
 
 
 
-function Customers() {
+function CashOnDelivery() {
         return (
         <DashboardCard
             className={styles.orders}
-            title="Total Customers"
-            value={3420}
+            title="Total COD"
+            value={2000}
             previousValue={3150}
         >
         </DashboardCard>
     );
 }
 
-export default Customers;
+export default CashOnDelivery;

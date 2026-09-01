@@ -1,46 +1,84 @@
 import styles from "./DashboardCard.module.css";
 
-let trendingUp = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up-icon lucide-trending-up"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg>
-let trendingDown = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-down-icon lucide-trending-down"><path d="M16 17h6v-6"/><path d="m22 17-8.5-8.5-5 5L2 7"/></svg>
+const arrowUp = (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+    >
+        <path d="m5 12 7-7 7 7" />
+        <path d="M12 19V5" />
+    </svg>
+);
 
+const arrowDown = (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+    >
+        <path d="M12 5v14" />
+        <path d="m19 12-7 7-7-7" />
+    </svg>
+);
 
-function DashboardCard({
-    title,
-    value,
-    previousValue,
-    previousText,
-    children,
-    className
-}) {
-    const change = ((value - previousValue) / previousValue) * 100;
-    const isPositive = change > 0;
+function DashboardCard({ title, value, previousValue }) {
+    const change =
+        previousValue !== 0
+            ? ((value - previousValue) / previousValue) * 100
+            : 0;
+
+    const isPositive = change >= 0;
 
     return (
-        <div className={`${styles.card} ${className}`}>
-            <h2 className={styles.title}>{title}</h2>
+        <div className={styles.DashboardCard}>
 
-            <p className={styles.value}>
-                {value}
+            <div className={styles.topRow}>
+                <h3 className={styles.title}>{title}</h3>
 
-                <span
-                    className={`${styles.change} ${
-                        isPositive
-                            ? styles.changePositive
-                            : styles.changeNegative
-                    }`}
+                <div
+                    className={`${styles.change} ${isPositive
+                        ? styles.changePositive
+                        : styles.changeNegative
+                        }`}
                 >
-                    {isPositive ? trendingUp : trendingDown}
+                    {isPositive ? "+" : "-"}
                     {Math.abs(change).toFixed(1)}%
-                </span>
-            </p>
-
-            <p className={styles.previousValue}>
-                {`${previousValue} ${previousText}`}
-            </p>
-
-            <div className={styles.dashboard}>
-                {children}
+                </div>
             </div>
+
+            <div className={styles.middleRow}>
+                <div className={styles.value}>
+                    {value.toLocaleString()}
+                </div>
+
+                <div
+                    className={`${styles.arrow} ${isPositive
+                        ? styles.arrowPositive
+                        : styles.arrowNegative
+                        }`}
+                >
+                    {isPositive ? arrowUp : arrowDown}
+                </div>
+            </div>
+
+            <div className={styles.bottomRow}>
+                {isPositive ? "Up" : "Down"} {Math.abs(change).toFixed(1)}%
+                this month
+            </div>
+
         </div>
     );
 }

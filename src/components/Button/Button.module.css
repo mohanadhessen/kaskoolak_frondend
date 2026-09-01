@@ -3,7 +3,7 @@
   width:38px;
   height:38px;
   border-radius:12px;
-  background: var(--color-background);
+  background: var(--color-card);
   border:none;
   display:flex;
   align-items:center;

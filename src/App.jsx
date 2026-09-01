@@ -1,16 +1,19 @@
-import Orders from "./components/cards/Orders/Orders";
+
 import Navbar from "./layouts/Navbar/Navbar";
-import Customers from "./components/cards/Customers/Customers";
-import Shipment from "./components/cards/Shipment/Shipment";
+import Header from "./layouts/Header/Header";
+import Main from "./layouts/Main/Main";
+import styles from "./App.module.css";
+
 function App() {
 
   return (
-    <>
-      {/* <Navbar/> */}
-      <Orders />
-      <Customers />
-      <Shipment />
-    </>
+    <div className={styles.appContainer}>
+      <Navbar />
+      <div className={styles.contentArea}>
+        <Header />
+        <Main />
+      </div>
+    </div>
   )
 }
 
