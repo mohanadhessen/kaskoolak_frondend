@@ -1,9 +1,8 @@
 .Shipment {
-    width: 100%;
     flex: 1;
-    min-height: 0;
+    min-height: 320px;
     box-sizing: border-box;
-
+    width: 100%;
     background-color: var(--color-card);
     padding: clamp(14px, 1.4vw, 24px);
     border-radius: 16px;
@@ -12,6 +11,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 16px;
 }
 
 .labelContiner {
@@ -57,6 +57,7 @@
     max-height: 100%;
     aspect-ratio: 2 / 1;
     overflow: hidden;
+    container-type: inline-size;
 }
 
 .chartInner {
@@ -73,18 +74,23 @@
     left: 0;
     width: 100%;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .total {
-    font-size: clamp(26px, 2.3vw, 46px);
+    font-size: clamp(20px, 11cqw, 38px);
     font-weight: 600;
     line-height: 1.1;
     font-variant-numeric: tabular-nums;
 }
 
 .totalLabel {
-    font-size: clamp(13px, 1vw, 20px);
+    font-size: clamp(11px, 4.5cqw, 15px);
     color: var(--color-muted, #8a8a8a);
+    margin-top: 2px;
 }
 
 .value {
