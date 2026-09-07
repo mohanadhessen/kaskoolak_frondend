@@ -1,26 +1,25 @@
 :root {
-  --color-primary: #112D4E;
+  --color-primary: #0F4C75;
   --color-secondary: #DBE2EF;
-  --color-accent: #222026;
+  --color-accent: #1B262C;
   --color-background: #E8EBEF;
-  --color-card: #ffffff;
+  --color-card: #FFFFFF;
   --color-actions: #3F72AF;
 
-  --color-brand: #112D4E;
-
-  --color-returned: #7A3E48;
-  --color-shipped: #112D4E;
-  --color-transit: #4F6D8A;
-  --color-exception: #A65D4D;
-
-  font-family: 'Google Sans', sans-serif;
+  --color-shipped: #2E8B57;
+  --color-transit: #F4B942;
+  --color-exception: #B85C38;
+  --color-returned: #D64545;
+ 
+  font-family: "Archivo Black", sans-serif;
 
 }
 
 
 
 svg {
-  stroke: #112D4E;
+  stroke: var(--color-accent);
+
 }
 
 

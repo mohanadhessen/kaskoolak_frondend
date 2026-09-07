@@ -30,12 +30,16 @@
     border-radius: 4px;
 }
 
+
+
 .bestSellersHeader {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
+
 
 /* Labels */
 
@@ -96,7 +100,7 @@
     height: 1px;
     background-color: var(--color-primary);
     opacity: 0.08;
-    /* margin: 2px 0; */
+ 
 }
 
 /* Product Cards */

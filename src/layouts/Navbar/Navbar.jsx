@@ -95,7 +95,7 @@ function Navbar() {
                         <h5>John Doe</h5>
                         <h6>Administrator</h6>
                     </div>
-                    {leftArrow}
+                    <button>{leftArrow}</button>
                 </div>
             </div>
         </nav>
