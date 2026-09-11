@@ -17,6 +17,29 @@
 }
 
 
+input {
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    box-shadow: none;
+}
+
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    border: none;
+    outline: none;
+    background: transparent;
+    box-shadow: none;
+
+    padding: 0;
+    margin: 0;
+}
 
 svg {
   stroke: var(--color-accent);

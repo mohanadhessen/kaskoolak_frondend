@@ -183,3 +183,19 @@
     transform: translateY(0);
     box-shadow: none;
 }
+
+
+.customerInfo{
+    display: flex;
+    gap: 16px;
+}
+
+
+.customerNameContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--color-background);
+    padding: 8px 16px;
+    border-radius: 6px;
+}
