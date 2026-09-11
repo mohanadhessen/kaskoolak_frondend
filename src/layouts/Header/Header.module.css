@@ -37,7 +37,7 @@
     color: var(--color-card);
 
     font-family: inherit;
-    font-size: 16px;
+    font-size: clamp(13px, 1vw, 16px);
     font-weight: 600;
     line-height: 1;
 
@@ -51,11 +51,9 @@
 
 .orderCreationBtn:hover {
     transform: translateY(-2px);
-    background-color: color-mix(
-        in srgb,
-        var(--color-primary) 90%,
-        black
-    );
+    background-color: color-mix(in srgb,
+            var(--color-primary) 90%,
+            black);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
 
@@ -101,4 +99,87 @@
     100% {
         transform: rotate(0deg);
     }
+}
+
+
+.createOrderModal {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    background-color: rgb(0 0 0 / 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.createOrderForm{
+    background-color: var(--color-card);
+    padding: 16px;
+    border-radius: 6px;
+    align-items: flex-start;
+}
+
+.createOrderHeader{
+    color: var(--color-accent);
+}
+
+.createOrderForm{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+.createOrderBody{
+    display: flex;
+    flex-direction: column;
+}
+
+.createOrderFooter{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.cancelBtn{
+    height: 48px;
+    padding: 0 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: var(--color-returned);
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    color: var(--color-card);
+
+    font-family: inherit;
+    font-size: clamp(13px, 1vw, 16px);
+    font-weight: 600;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+
+
+.cancelBtn svg {
+    stroke: var(--color-secondary);
+}
+
+
+.cancelBtn:hover {
+    transform: translateY(-2px);
+    background-color: color-mix(in srgb,
+            var(--color-returned) 90%,
+            black);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.cancelBtn:active {
+    transform: translateY(0);
+    box-shadow: none;
 }

@@ -2,20 +2,21 @@
     background-color: var(--color-card);
     border-radius: 16px;
     flex: 1;
-    min-height: 320px;
+    min-height: 280px;
     box-sizing: border-box;
     width: 100%;
-    padding: clamp(14px, 1.2vw, 24px);
+    padding: clamp(10px, 1.2vw, 24px);
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: clamp(12px, 1.5vw, 24px);
     overflow: hidden;
+    container-type: inline-size;
 }
 
 .bestSellersBody {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: clamp(4px, 0.5vw, 8px);
     flex: 1;
     min-height: 0;
     overflow-y: auto;
@@ -39,7 +40,12 @@
     align-items: center;
 }
 
-
+.bestSellersHeader h3 {
+    font-size: clamp(13px, 4cqw, 18px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 /* Labels */
 
@@ -47,18 +53,18 @@
     width: 100%;
     display: grid;
     grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr));
-    column-gap: 12px;
+    column-gap: clamp(4px, 1cqw, 12px);
     align-items: center;
     opacity: 0.4;
     font-weight: 600;
-    font-size: 12px;
+    font-size: clamp(9px, 3cqw, 12px);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     padding-bottom: 4px;
 }
 
 .labels > span {
-    font-size: 12px;
+    font-size: clamp(9px, 3cqw, 12px);
     justify-self: start;
 }
 
@@ -70,7 +76,7 @@
 }
 
 .labels li {
-    font-size: 12px;
+    font-size: clamp(9px, 3cqw, 12px);
     justify-self: center;
     text-align: center;
 }
@@ -85,8 +91,9 @@
 .bestSellers a {
     opacity: 0.4;
     font-weight: 600;
-    font-size: 13px;
+    font-size: clamp(10px, 3.5cqw, 13px);
     transition: opacity 0.2s ease;
+    white-space: nowrap;
 }
 
 .bestSellers a:hover {
@@ -109,9 +116,9 @@
     width: 100%;
     display: grid;
     grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr));
-    column-gap: 12px;
+    column-gap: clamp(4px, 1cqw, 12px);
     align-items: center;
-    padding: 4px 0;
+    padding: clamp(2px, 0.3vw, 4px) 0;
 }
 
 .card ul {
@@ -122,8 +129,8 @@
 }
 
 .card img {
-    height: 38px;
-    width: 38px;
+    height: clamp(28px, 10cqw, 38px);
+    width: clamp(28px, 10cqw, 38px);
     border-radius: 8px;
     object-fit: cover;
     flex-shrink: 0;
@@ -131,13 +138,13 @@
 
 .product {
     display: flex;
-    gap: 10px;
+    gap: clamp(4px, 2cqw, 10px);
     align-items: center;
     min-width: 0;
 }
 
 .product span {
-    font-size: 15px;
+    font-size: clamp(11px, 3.8cqw, 15px);
     font-weight: 600;
     white-space: nowrap;
     overflow: hidden;
@@ -145,7 +152,7 @@
 }
 
 .price {
-    font-size: 14px;
+    font-size: clamp(10px, 3.5cqw, 14px);
     font-weight: 600;
     justify-self: center;
     text-align: center;
@@ -153,7 +160,7 @@
 }
 
 .sold {
-    font-size: 14px;
+    font-size: clamp(10px, 3.5cqw, 14px);
     opacity: 0.65;
     font-weight: 600;
     justify-self: center;
@@ -166,9 +173,9 @@
 .stock {
     justify-self: end;
     width: fit-content;
-    font-size: 11px;
+    font-size: clamp(8px, 2.8cqw, 11px);
     font-weight: 600;
-    padding: 4px 8px;
+    padding: clamp(2px, 0.5cqw, 4px) clamp(4px, 1.5cqw, 8px);
     border-radius: 6px;
     white-space: nowrap;
     text-align: right;

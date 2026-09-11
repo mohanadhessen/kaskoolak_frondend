@@ -1,93 +1,124 @@
-import { useState } from "react";
-import { Pie, PieChart, Cell, ResponsiveContainer } from "recharts";
-import DashboardCard from "../../DashboardCard/DashboardCard";
+import { useRef, useEffect } from "react";
+import * as echarts from "echarts";
 import styles from "./Shipment.module.css";
-
-
 
 const data = [
     {
         name: "Delivered",
         value: 680,
-        color: "var(--color-shipped)"
+        itemStyle: { color: "var(--color-shipped)" }
     },
     {
         name: "In Transit",
         value: 200,
-        color: "var(--color-transit)"
+        itemStyle: { color: "var(--color-transit)" }
     },
     {
         name: "Exception",
         value: 80,
-        color: "var(--color-exception)"
+        itemStyle: { color: "var(--color-exception)" }
     },
     {
         name: "Returned",
         value: 120,
-        color: "var(--color-returned)"
+        itemStyle: { color: "var(--color-returned)" }
     }
 ];
 
+function resolveColor(cssVar) {
+    const temp = document.createElement("div");
+    temp.style.color = cssVar;
+    document.body.appendChild(temp);
+    const resolved = getComputedStyle(temp).color;
+    document.body.removeChild(temp);
+    return resolved;
+}
+
+function getResolvedData() {
+    return data.map((d) => ({
+        ...d,
+        itemStyle: { color: resolveColor(d.itemStyle.color) }
+    }));
+}
+
 export default function Shipment() {
-    const [selectedDate, setSelectedDate] = useState("today");
+    const chartRef = useRef(null);
+    const chartInstance = useRef(null);
+
+    useEffect(() => {
+        if (!chartRef.current) return;
+
+        const chart = echarts.init(chartRef.current);
+        chartInstance.current = chart;
+
+        const resolvedData = getResolvedData();
+
+        const option = {
+            tooltip: {
+                trigger: "item",
+                appendTo: () => document.body,
+                extraCssText: "z-index: 9999;"
+            },
+            legend: {
+                orient: "horizontal",
+                bottom: 0,
+                left: "center",
+                textStyle: {
+                    fontSize: 11
+                },
+                itemWidth: 14,
+                itemHeight: 10,
+                itemGap: 8
+            },
+            series: [
+                {
+                    type: "pie",
+                    radius: ["40%", "65%"],
+                    center: ["50%", "45%"],
+                    padAngle: 5,
+                    itemStyle: {
+                        borderRadius: 10
+                    },
+                    label: {
+                        show: false
+                    },
+                    emphasis: {
+                        label: {
+                            show: true,
+                            fontSize: 14,
+                            fontWeight: "bold",
+                            formatter: "{b}\n{d}%"
+                        },
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: "rgba(0, 0, 0, 0.2)"
+                        }
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    data: resolvedData
+                }
+            ]
+        };
+
+        chart.setOption(option);
+
+        const ro = new ResizeObserver(() => {
+            chart.resize();
+        });
+        ro.observe(chartRef.current);
+
+        return () => {
+            ro.disconnect();
+            chart.dispose();
+        };
+    }, []);
+
     return (
         <div className={styles.Shipment}>
-            <div className={styles.chartContainer}>
-                <div className={styles.chartWrapper}>
-                    <div className={styles.chartInner}>
-                        <ResponsiveContainer width="100%" height="100%">
-                            <PieChart>
-                                <Pie
-                                    data={data}
-                                    innerRadius="70%"
-                                    outerRadius="100%"
-                                    startAngle={180}
-                                    endAngle={0}
-                                    cornerRadius={4}
-                                    paddingAngle={3}
-                                    dataKey="value"
-                                    isAnimationActive={true}
-                                    activeShape={false}
-                                >
-                                    {data.map((entry, index) => (
-                                        <Cell
-                                            key={`cell-${index}`}
-                                            fill={entry.color}
-                                        />
-                                    ))}
-                                </Pie>
-                            </PieChart>
-                        </ResponsiveContainer>
-                    </div>
-
-                    <div className={styles.chartCenter}>
-                        <div className={styles.total}>1080</div>
-                        <div className={styles.totalLabel}>shipments</div>
-                    </div>
-                </div>
-            </div>
-
-            <div className={styles.labelsWrapper}>
-                {data.map((e) => {
-                    return (
-                        <div className={styles.labelContiner} key={e.name}>
-                            <div className={styles.label}>
-                                <span
-                                    className={styles.dot}
-                                    style={{ backgroundColor: e.color }}
-                                />
-                                {e.name}
-                            </div>
-
-                            <div className={styles.value}>
-                                {e.value}
-                            </div>
-                        </div>
-                    );
-                })}
-            </div>
-
+            <div className={styles.chartContainer} ref={chartRef} />
         </div>
-
     );
 }

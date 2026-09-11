@@ -50,7 +50,7 @@
     color: #ffffff;
     border-radius: 10px;
 
-    font-size: 20px;
+    font-size: clamp(16px, 1.3vw, 20px);
     font-weight: 700;
     line-height: 1;
 }
@@ -197,20 +197,20 @@
 }
 
 .infoContainer h4 {
-    font-size: 14px;
+    font-size: clamp(12px, 0.9vw, 14px);
     font-weight: 600;
     color: #112D4E;
 }
 
 .infoContainer h5 {
-    font-size: 13px;
+    font-size: clamp(11px, 0.85vw, 13px);
     font-weight: 400;
     color: #112D4E;
     opacity: 0.7;
 }
 
 .infoContainer h6 {
-    font-size: 11px;
+    font-size: clamp(9px, 0.72vw, 11px);
     font-weight: 500;
     color: #3F72AF;
 
