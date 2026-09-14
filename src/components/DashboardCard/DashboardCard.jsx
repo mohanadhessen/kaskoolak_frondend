@@ -1,38 +1,8 @@
+import { Icon } from "@iconify/react";
 import styles from "./DashboardCard.module.css";
 
-const arrowUp = (
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-    >
-        <path d="m5 12 7-7 7 7" />
-        <path d="M12 19V5" />
-    </svg>
-);
-
-const arrowDown = (
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-    >
-        <path d="M12 5v14" />
-        <path d="m19 12-7 7-7-7" />
-    </svg>
-);
+const arrowUp = <Icon icon="lucide:arrow-up" width={16} height={16} />;
+const arrowDown = <Icon icon="lucide:arrow-down" width={16} height={16} />;
 
 function DashboardCard({ title, value, previousValue }) {
     const change =

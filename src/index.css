@@ -4,41 +4,44 @@
   --color-accent: #1B262C;
   --color-background: #E8EBEF;
   --color-card: #FFFFFF;
-  --color-actions: #3F72AF;
+  --color-actions: #3B9EFF;
 
   --color-shipped: #2E8B57;
   --color-transit: #F4B942;
   --color-exception: #B85C38;
   --color-returned: #D64545;
- 
+
   font-family: "Archivo Black", sans-serif;
   font-size: clamp(12px, 0.9vw, 16px);
+
 
 }
 
 
 input {
-    appearance: none;
-    -webkit-appearance: none;
-    border: none;
-    outline: none;
-    background: none;
-    box-shadow: none;
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  box-shadow: none;
 }
 
 
+
+
 select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 
-    border: none;
-    outline: none;
-    background: transparent;
-    box-shadow: none;
+  border: none;
+  outline: none;
+  background: transparent;
+  box-shadow: none;
 
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 svg {
@@ -46,60 +49,29 @@ svg {
 
 }
 
-
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html,
-body,
-#root {
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
-}
-
 body {
   background-color: var(--color-background);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
+* {
   margin: 0;
-}
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
 
-button,
-input,
-textarea,
-select {
-  font: inherit;
-}
-
-button {
-  cursor: pointer;
-}
-
-img,
-svg {
-  display: block;
-  max-width: 100%;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
 }
 
 
 button {
-  all: unset;
+  border: none;
+  background: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
   cursor: pointer;
 }

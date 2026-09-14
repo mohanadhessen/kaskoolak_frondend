@@ -1,124 +1,98 @@
-import { useRef, useEffect } from "react";
-import * as echarts from "echarts";
+import ReactECharts from "echarts-for-react";
+import { useMemo, useRef, useEffect } from "react";
 import styles from "./Shipment.module.css";
 
-const data = [
-    {
-        name: "Delivered",
-        value: 680,
-        itemStyle: { color: "var(--color-shipped)" }
-    },
-    {
-        name: "In Transit",
-        value: 200,
-        itemStyle: { color: "var(--color-transit)" }
-    },
-    {
-        name: "Exception",
-        value: 80,
-        itemStyle: { color: "var(--color-exception)" }
-    },
-    {
-        name: "Returned",
-        value: 120,
-        itemStyle: { color: "var(--color-returned)" }
-    }
-];
-
-function resolveColor(cssVar) {
-    const temp = document.createElement("div");
-    temp.style.color = cssVar;
-    document.body.appendChild(temp);
-    const resolved = getComputedStyle(temp).color;
-    document.body.removeChild(temp);
-    return resolved;
+function getCssVar(name) {
+    return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 }
 
-function getResolvedData() {
-    return data.map((d) => ({
-        ...d,
-        itemStyle: { color: resolveColor(d.itemStyle.color) }
-    }));
-}
-
-export default function Shipment() {
+function MyChart() {
+    const containerRef = useRef(null);
     const chartRef = useRef(null);
-    const chartInstance = useRef(null);
 
+    // Keep the chart's internal size in sync with its actual container size,
+    // since flex/grid layout changes don't fire a window "resize" event.
     useEffect(() => {
-        if (!chartRef.current) return;
+        const el = containerRef.current;
+        if (!el) return;
 
-        const chart = echarts.init(chartRef.current);
-        chartInstance.current = chart;
-
-        const resolvedData = getResolvedData();
-
-        const option = {
-            tooltip: {
-                trigger: "item",
-                appendTo: () => document.body,
-                extraCssText: "z-index: 9999;"
-            },
-            legend: {
-                orient: "horizontal",
-                bottom: 0,
-                left: "center",
-                textStyle: {
-                    fontSize: 11
-                },
-                itemWidth: 14,
-                itemHeight: 10,
-                itemGap: 8
-            },
-            series: [
-                {
-                    type: "pie",
-                    radius: ["40%", "65%"],
-                    center: ["50%", "45%"],
-                    padAngle: 5,
-                    itemStyle: {
-                        borderRadius: 10
-                    },
-                    label: {
-                        show: false
-                    },
-                    emphasis: {
-                        label: {
-                            show: true,
-                            fontSize: 14,
-                            fontWeight: "bold",
-                            formatter: "{b}\n{d}%"
-                        },
-                        itemStyle: {
-                            shadowBlur: 10,
-                            shadowOffsetX: 0,
-                            shadowColor: "rgba(0, 0, 0, 0.2)"
-                        }
-                    },
-                    labelLine: {
-                        show: false
-                    },
-                    data: resolvedData
-                }
-            ]
-        };
-
-        chart.setOption(option);
-
-        const ro = new ResizeObserver(() => {
-            chart.resize();
+        const observer = new ResizeObserver(() => {
+            chartRef.current?.getEchartsInstance().resize();
         });
-        ro.observe(chartRef.current);
+        observer.observe(el);
 
-        return () => {
-            ro.disconnect();
-            chart.dispose();
-        };
+        return () => observer.disconnect();
     }, []);
 
+    const data = useMemo(
+        () => [
+            { name: "Delivered", value: 680, itemStyle: { color: getCssVar("--color-shipped") } },
+            { name: "In Transit", value: 200, itemStyle: { color: getCssVar("--color-transit") } },
+            { name: "Exception", value: 80, itemStyle: { color: getCssVar("--color-exception") } },
+            { name: "Returned", value: 120, itemStyle: { color: getCssVar("--color-returned") } },
+        ],
+        []
+    );
+
+    const option = {
+        tooltip: {
+            trigger: "item",
+        },
+
+        legend: {
+            top: 0,
+            left: "center",
+            orient: "horizontal",
+            width: "70%",       // narrower than the container -> forces wrap to 2 rows
+            itemGap: 10,
+            itemWidth: 12,
+            itemHeight: 10,
+            textStyle: { fontSize: 12 },
+        },
+
+        series: [
+            {
+                name: "Shipments",
+                type: "pie",
+                radius: ["40%", "70%"],
+                center: ["50%", "60%"], // shifted down to sit under the 2-row legend
+                avoidLabelOverlap: false,
+                padAngle: 5,
+
+                itemStyle: {
+                    borderRadius: 10,
+                },
+
+                label: {
+                    show: false,
+                },
+
+                emphasis: {
+                    label: {
+                        show: false,
+                    },
+                },
+
+                labelLine: {
+                    show: false,
+                },
+
+                data: data,
+            },
+        ],
+    };
+
     return (
-        <div className={styles.Shipment}>
-            <div className={styles.chartContainer} ref={chartRef} />
+        <div className={styles.Shipment} ref={containerRef}>
+            <div className={styles.chartContainer}>
+                <ReactECharts
+                    ref={chartRef}
+                    option={option}
+                    style={{ height: "100%", width: "100%" }}
+                />
+            </div>
         </div>
     );
 }
+
+export default MyChart;

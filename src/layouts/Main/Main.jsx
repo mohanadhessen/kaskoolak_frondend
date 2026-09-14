@@ -1,4 +1,5 @@
 import styles from "./Main.module.css";
+import { Icon } from "@iconify/react";
 import Revenue from "../../components/cards/Revenue/Revenue";
 import ProfitMargin from "../../components/cards/ProfitMargin/ProfitMargin";
 import OrderNumber from "../../components/cards/OrderNumber/OrderNumber";
@@ -49,10 +50,9 @@ function SearchInput() {
 }
 
 
-let SearchIcon = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-search-icon lucide-search"><path d="m21 21-4.34-4.34" /><circle cx="11" cy="11" r="8" /></svg>
-let filterIcon = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-funnel-icon lucide-funnel"><path d="M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z" /></svg>
-let sortIcon = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-list-filter-icon lucide-list-filter"><path d="M2 5h20" /><path d="M6 12h12" /><path d="M9 19h6" /></svg>
-let ellipsis = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ellipsis-icon lucide-ellipsis"><circle cx="12" cy="12" r="1" /><circle cx="19" cy="12" r="1" /><circle cx="5" cy="12" r="1" /></svg>
+let SearchIcon = <Icon icon="lucide:search" width={24} height={24} />;
+let sortIcon = <Icon icon="lucide:list-filter" width={16} height={16} />;
+let ellipsis = <Icon icon="lucide:ellipsis" width={24} height={24} />;
 
 
 
@@ -78,8 +78,8 @@ const rawOrders = [
 
 
 
-let right = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right-icon lucide-chevron-right"><path d="m9 18 6-6-6-6" /></svg>
-let left = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left-icon lucide-chevron-left"><path d="m15 18-6-6 6-6" /></svg>
+let right = <Icon icon="lucide:chevron-right" width={24} height={24} />;
+let left = <Icon icon="lucide:chevron-left" width={24} height={24} />;
 
 
 
@@ -250,18 +250,6 @@ function Main() {
                     {SearchIcon}
                     <SearchInput />
                   </div>
-
-                  <Tooltip text="Filter">
-                    <button type="button" className={styles.actionBtn} aria-label="Filter">
-                      {filterIcon}
-                    </button>
-                  </Tooltip>
-
-                  <Tooltip text="Sort">
-                    <button type="button" className={styles.actionBtn} aria-label="Sort">
-                      {sortIcon}
-                    </button>
-                  </Tooltip>
                 </div>
               </div>
 
@@ -271,14 +259,47 @@ function Main() {
                     <li className={styles.idContiner}>
                       <input type="checkbox" className={styles.checkbox} />
                       ID
+                      <button type="button" className={styles.actionBtn} aria-label="Sort">
+                        {sortIcon}
+                      </button>
                     </li>
 
-                    <li>CUSTOMER</li>
-                    <li>STATUS</li>
-                    <li>DATE</li>
-                    <li>TOTAL</li>
-                    <li>ITEMS</li>
-                    <li>COURIER</li>
+                    <li>
+                      CUSTOMER
+                      <button type="button" className={styles.actionBtn} aria-label="Sort">
+                        {sortIcon}
+                      </button>
+                    </li>
+                    <li>
+                      STATUS
+                      <button type="button" className={styles.actionBtn} aria-label="Sort">
+                        {sortIcon}
+                      </button>
+                    </li>
+                    <li>
+                      DATE
+                      <button type="button" className={styles.actionBtn} aria-label="Sort">
+                        {sortIcon}
+                      </button>
+                    </li>
+                    <li>
+                      TOTAL
+                      <button type="button" className={styles.actionBtn} aria-label="Sort">
+                        {sortIcon}
+                      </button>
+                    </li>
+                    <li>
+                      ITEMS
+                      <button type="button" className={styles.actionBtn} aria-label="Sort">
+                        {sortIcon}
+                      </button>
+                    </li>
+                    <li>
+                      COURIER
+                      <button type="button" className={styles.actionBtn} aria-label="Sort">
+                        {sortIcon}
+                      </button>
+                    </li>
                     <li></li>
                   </ul>
                   

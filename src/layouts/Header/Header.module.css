@@ -110,39 +110,51 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 
 
-.createOrderForm{
+.createOrderForm {
     background-color: var(--color-card);
     padding: 16px;
     border-radius: 6px;
     align-items: flex-start;
+
 }
 
-.createOrderHeader{
-    color: var(--color-accent);
-}
-
-.createOrderForm{
+.createOrderForm {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-
-.createOrderBody{
-    display: flex;
-    flex-direction: column;
+.createOrderHeader {
+    color: var(--color-accent);
 }
 
-.createOrderFooter{
+.createOrderBody {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.divider {
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+    opacity: 0.08;
+
+}
+
+
+.createOrderFooter {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
-.cancelBtn{
+
+.cancelBtn {
     height: 48px;
     padding: 0 12px;
 
@@ -184,18 +196,89 @@
     box-shadow: none;
 }
 
+.customer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
 
-.customerInfo{
+.customerNameContainer,
+.customerPhone,
+.address {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 8px;
+    padding: 16px 12px;
+    border-radius: 8px;
+    background-color: var(--color-background);
+}
+
+.customerNameContainer svg {
+    flex-shrink: 0;
+}
+
+.customerName {
+    flex: 1;
+    min-width: 0;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-accent);
+}
+
+.address {
+    width: 100%;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-accent);
+}
+
+.locationContainer {
     display: flex;
     gap: 16px;
 }
 
-
-.customerNameContainer {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.locationField {
+    flex: 1;
+    min-width: 0;
     background-color: var(--color-background);
-    padding: 8px 16px;
-    border-radius: 6px;
+    border-radius: 8px;
+    padding: 16px 12px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-accent);
+}
+
+.customerName::placeholder,
+.locationField::placeholder,
+.address::placeholder {
+    color: #9CA3AF;
+    font-weight: 500;
+    opacity: 1;
+}
+
+.delivery {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.deliveryInfo {
+    display: flex;
+    gap: 16px;
+}
+
+.deliveryInfo input,
+.deliveryInfo select {
+    flex: 1;
+    background-color: var(--color-background);
+    border-radius: 8px;
+    padding: 16px 12px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-accent);
 }
