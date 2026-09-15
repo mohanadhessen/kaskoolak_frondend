@@ -1,0 +1,33 @@
+.DropDownMenu {
+    position: absolute;
+    top: calc(100% + 16px);
+    left: 0;
+    width: 100%;
+
+    background-color: white;
+    padding: 8px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+
+
+    box-shadow: 0 8px 20px rgba(149, 157, 165, 0.50);
+
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-4px);
+    pointer-events: none;
+
+    transition:
+        opacity 0.15s ease,
+        transform 0.15s ease,
+        visibility 0.15s ease;
+}
+
+.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+    z-index: 1;
+}

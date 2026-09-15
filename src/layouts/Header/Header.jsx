@@ -1,8 +1,20 @@
 import styles from "./Header.module.css";
 import React, { useState } from "react"
 import { Icon } from "@iconify/react";
-import PhoneField from "../../components/PhoneField/PhoneField";
 
+
+import DropdownButton from "../../components/DropDown/DropDownButton/DropDownButton";
+import DropDownItems from "../../components/DropDown/DropDownItems/DropDownItems";
+
+
+
+import {
+    PhoneInput,
+    defaultCountries,
+    parseCountry
+} from "react-international-phone";
+
+import "react-international-phone/style.css";
 
 
 
@@ -18,8 +30,15 @@ function Header() {
         "Other"
 
     ];
+    const status = [
+        "Completed",
+        "Pending",
+        "Cancelled"
+    ];
+
+    const [phone, setPhone] = useState("");
     const [showModal, setShowModal] = useState(false)
-    let userIcon = <Icon icon="lucide:user" width={24} height={24} />;
+    let userIcon = <Icon icon="lucide:user" height="1.5em" />;
     let notificationIcon = <Icon icon="lucide:bell" width={24} height={24} />;
     let plusIcon = <Icon icon="lucide:plus" width={24} height={24} />;
 
@@ -57,7 +76,18 @@ function Header() {
                                     </div>
 
                                     <div className={styles.customerPhone}>
-                                        <PhoneField />
+                                        <PhoneInput
+                                            defaultCountry="eg"
+                                            placeholder="Phone Number"
+                                            value={phone}
+                                            onChange={setPhone}
+                                            className={styles.phoneInput}
+                                            inputClassName={styles.phoneInputField}
+                                            countrySelectorStyleProps={{
+                                                buttonClassName: styles.countryButton,
+                                            }}
+                                            disableDialCodeAndPrefix
+                                        />
                                     </div>
 
                                     <div className={styles.locationContainer}>
@@ -89,24 +119,20 @@ function Header() {
                                     <h3>Delivery</h3>
 
                                     <div className={styles.deliveryInfo}>
-                                        <select
-                                            className={styles.input}
-                                            name="status"
-                                            id="status"
-                                            defaultValue="pending"
-                                        >
-                                            <option value="pending">Pending</option>
-                                            <option value="complete">Complete</option>
-                                            <option value="canceled">Canceled</option>
-                                        </select>
+                                        <DropdownButton text={"STATUS"}>
+                                            {status.map((statu) => <DropDownItems>{statu}</DropDownItems>)}
+                                        </DropdownButton>
 
                                         <input
-                                            className={styles.input}
+                                            className={styles.date}
                                             type="date"
                                             name="date"
                                             id="date"
                                         />
                                     </div>
+                                    <DropdownButton text={"Courier"}>
+                                        {couriers.map((courier) => <DropDownItems>{courier}</DropDownItems>)}
+                                    </DropdownButton>
                                 </div>
 
 

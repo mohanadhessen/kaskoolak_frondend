@@ -1,0 +1,28 @@
+.dropdownContainer {
+    width: 100%;
+}
+
+.dropdownWrapper {
+    position: relative;
+    width: 100%;
+}
+
+.dropdownButton {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 8px;
+    background-color: var(--color-background);
+    border-radius: 8px;
+
+    font-weight: 600;
+    font-size: 14px;
+    color: gray;
+}
+
+.open {
+    background-color: #dff3ff;
+    color: black;
+}

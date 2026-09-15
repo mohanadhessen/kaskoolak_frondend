@@ -178,10 +178,6 @@
 
 
 
-.cancelBtn svg {
-    stroke: var(--color-secondary);
-}
-
 
 .cancelBtn:hover {
     transform: translateY(-2px);
@@ -202,83 +198,80 @@
     gap: 16px;
 }
 
-.customerNameContainer,
-.customerPhone,
-.address {
+
+
+.customerNameContainer {
     display: flex;
-    align-items: center;
-    position: relative;
+    align-items: end;
     gap: 8px;
-    padding: 16px 12px;
-    border-radius: 8px;
     background-color: var(--color-background);
+    padding: 12px;
+    border-radius: 6px;
+    
 }
 
-.customerNameContainer svg {
-    flex-shrink: 0;
-}
-
-.customerName {
-    flex: 1;
-    min-width: 0;
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--color-accent);
-}
-
-.address {
-    width: 100%;
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--color-accent);
-}
-
-.locationContainer {
-    display: flex;
-    gap: 16px;
-}
-
-.locationField {
-    flex: 1;
-    min-width: 0;
+.phoneInput {
     background-color: var(--color-background);
-    border-radius: 8px;
-    padding: 16px 12px;
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--color-accent);
+    padding: 4px;
+    border-radius: 6px;
+
+    display: flex !important;
+    align-items: center !important;
+    gap: 0 !important;
 }
 
-.customerName::placeholder,
-.locationField::placeholder,
-.address::placeholder {
-    color: #9CA3AF;
-    font-weight: 500;
-    opacity: 1;
+.phoneInputField {
+    flex: 1 !important;
+    width: auto !important;
+    min-width: 0 !important;
+
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
-.delivery {
-    display: flex;
+.countryButton {
+    width: auto !important;
+
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Reset the library's country-selector wrapper */
+.phoneInput :global(.react-international-phone-country-selector) {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Reset the library's input wrapper */
+.phoneInput :global(.react-international-phone-input-container) {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.delivery{
     flex-direction: column;
-    gap: 16px;
-}
-
-.deliveryInfo {
     display: flex;
     gap: 16px;
 }
 
-.deliveryInfo input,
-.deliveryInfo select {
-    flex: 1;
+.locationContainer{
+    display: flex;
+    gap: 16px;
+
+}
+
+.locationContainer input ,.address,.date{
+    width: 100%;
     background-color: var(--color-background);
-    border-radius: 8px;
-    padding: 16px 12px;
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--color-accent);
+    padding: 12px;
+    border-radius: 6px;
+}
+
+.deliveryInfo{
+    display: flex;
+    gap: 16px;
 }
