@@ -5,11 +5,10 @@
     width: 100%;
 
     background-color: white;
-    padding: 8px;
-    border-radius: 6px;
+    padding: var(--radius-sm, 6px);
+    border-radius: var(--radius-sm, 6px);
     font-weight: 600;
     font-size: 14px;
-
 
     box-shadow: 0 8px 20px rgba(149, 157, 165, 0.50);
 

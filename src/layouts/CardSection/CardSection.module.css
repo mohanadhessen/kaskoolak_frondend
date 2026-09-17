@@ -1,0 +1,12 @@
+.cardSection {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(185px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+@media (max-width: 1150px) {
+    .cardSection {
+        grid-template-columns: repeat(2, minmax(185px, 1fr));
+    }
+}

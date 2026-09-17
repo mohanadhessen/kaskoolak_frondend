@@ -7,8 +7,8 @@
     min-height: 120px;
 
     background-color: var(--color-card);
-    border-radius: 16px;
-    padding: clamp(14px, 1.2vw, 24px);
+    border-radius: var(--radius-xl, 16px);
+    padding: var(--radius-xl, 16px);
     box-sizing: border-box;
 
     display: flex;

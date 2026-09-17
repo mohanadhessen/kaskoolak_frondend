@@ -13,9 +13,9 @@
     justify-content: space-between;
     align-items: center;
 
-    padding: 8px;
+    padding: var(--radius-md, 8px);
     background-color: var(--color-background);
-    border-radius: 8px;
+    border-radius: var(--radius-md, 8px);
 
     font-weight: 600;
     font-size: 14px;

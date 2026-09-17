@@ -4,17 +4,21 @@
   --color-accent: #1B262C;
   --color-background: #E8EBEF;
   --color-card: #FFFFFF;
-  --color-actions: #3B9EFF;
+  --color-actions: #dff3ff;
 
   --color-shipped: #2E8B57;
   --color-transit: #F4B942;
   --color-exception: #B85C38;
   --color-returned: #D64545;
 
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 16px;
+
   font-family: "Archivo Black", sans-serif;
   font-size: clamp(12px, 0.9vw, 16px);
-
-
 }
 
 
@@ -25,15 +29,21 @@ input {
   outline: none;
   background: none;
   box-shadow: none;
+  width: 100%;
 }
 
 
-input::placeholder{
+input::placeholder {
   font-weight: 600;
   color: gray;
   font-size: 14px;
 }
 
+input {
+  font-weight: 600;
+  color: var(--color-accent);
+  font-size: 14px;
+}
 
 
 select {

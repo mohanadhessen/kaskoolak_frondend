@@ -2,7 +2,6 @@
     width: 100%;
     display: flex;
     justify-content: flex-end;
-
 }
 
 .notificationContainer {
@@ -18,20 +17,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
+    border-radius: var(--radius-lg, 10px);
 }
-
 
 .orderCreationBtn {
     height: 48px;
-    padding: 0 12px;
-
+    padding: 0 var(--radius-md, 8px);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
     background-color: var(--color-primary);
-    border-radius: 8px;
+    border-radius: var(--radius-md, 8px);
     border: none;
     outline: none;
     color: var(--color-card);
@@ -47,7 +44,6 @@
 .orderCreationBtn svg {
     stroke: var(--color-secondary);
 }
-
 
 .orderCreationBtn:hover {
     transform: translateY(-2px);
@@ -66,7 +62,6 @@
     background: none;
     height: 20px;
     width: 20px;
-
     border: none;
     cursor: pointer;
 }
@@ -101,7 +96,6 @@
     }
 }
 
-
 .createOrderModal {
     position: fixed;
     inset: 0;
@@ -110,20 +104,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
-
-
 
 .createOrderForm {
     background-color: var(--color-card);
-    padding: 16px;
-    border-radius: 6px;
+    padding: var(--radius-xl, 16px);
+    border-radius: var(--radius-xl, 16px);
     align-items: flex-start;
-
-}
-
-.createOrderForm {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -133,7 +120,8 @@
     color: var(--color-accent);
 }
 
-.createOrderBody {
+.leftSection,
+.rightSection {
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -144,9 +132,7 @@
     height: 2px;
     background-color: var(--color-primary);
     opacity: 0.08;
-
 }
-
 
 .createOrderFooter {
     width: 100%;
@@ -156,14 +142,13 @@
 
 .cancelBtn {
     height: 48px;
-    padding: 0 12px;
-
+    padding: 0 var(--radius-md, 8px);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
     background-color: var(--color-returned);
-    border-radius: 8px;
+    border-radius: var(--radius-md, 8px);
     border: none;
     outline: none;
     color: var(--color-card);
@@ -175,9 +160,6 @@
 
     cursor: pointer;
 }
-
-
-
 
 .cancelBtn:hover {
     transform: translateY(-2px);
@@ -198,22 +180,19 @@
     gap: 16px;
 }
 
-
-
 .customerNameContainer {
     display: flex;
-    align-items: end;
+    align-items: center;
     gap: 8px;
     background-color: var(--color-background);
-    padding: 12px;
-    border-radius: 6px;
-    
+    padding: var(--radius-md, 8px);
+    border-radius: var(--radius-md, 8px);
 }
 
 .phoneInput {
     background-color: var(--color-background);
-    padding: 4px;
-    border-radius: 6px;
+    padding: var(--radius-sm, 6px);
+    border-radius: var(--radius-sm, 6px);
 
     display: flex !important;
     align-items: center !important;
@@ -252,26 +231,110 @@
     padding: 0 !important;
 }
 
-.delivery{
+.delivery {
     flex-direction: column;
     display: flex;
     gap: 16px;
 }
 
-.locationContainer{
+.locationContainer {
     display: flex;
     gap: 16px;
-
 }
 
-.locationContainer input ,.address,.date{
+.locationContainer input,
+.address,
+.date {
     width: 100%;
     background-color: var(--color-background);
-    padding: 12px;
-    border-radius: 6px;
+    padding: var(--radius-md, 8px);
+    border-radius: var(--radius-md, 8px);
 }
 
-.deliveryInfo{
+.deliveryInfo {
     display: flex;
     gap: 16px;
+}
+
+.createOrderBody {
+    display: flex;
+    gap: 34px;
+}
+
+.leftSection,
+.rightSection {
+    flex: 1;
+    min-width: 0;
+}
+
+.paymentSourceContainer {
+    display: flex;
+    gap: 16px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.itemHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.itemButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: var(--radius-sm, 6px);
+    background-color: var(--color-background);
+    border-radius: var(--radius-sm, 6px);
+    font-weight: 600;
+    font-size: 14px;
+    color: gray;
+}
+
+.itemButton:hover {
+    background-color: var(--color-actions);
+}
+
+.itemBody {
+    position: relative;
+}
+
+.itemsModal {
+    position: absolute;
+    width: 700px;
+    max-width: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    padding: var(--radius-xl, 16px);
+    border-radius: var(--radius-xl, 16px);
+    background-color: var(--color-card);
+}
+
+.itemsLabels ul {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    flex-shrink: 0;
+    background-color: var(--color-background);
+    border-radius: var(--radius-sm, 6px);
+}
+
+.checkbox:checked {
+    background-color: var(--color-actions);
+    border: 2px solid color-mix(in srgb, var(--color-actions) 75%, black);
+}
+
+.idContiner {
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }

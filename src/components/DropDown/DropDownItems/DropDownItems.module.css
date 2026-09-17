@@ -1,6 +1,6 @@
 .dropDownItems {
-    padding: 8px;
-    border-radius: 6px;
+    padding: var(--radius-sm, 6px);
+    border-radius: var(--radius-sm, 6px);
     cursor: pointer;
     transition: background-color 0.15s ease;
 }
@@ -8,5 +8,3 @@
 .dropDownItems:hover {
     background-color: #dff3ff;
 }
-
-

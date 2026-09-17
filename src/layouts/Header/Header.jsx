@@ -9,9 +9,7 @@ import DropDownItems from "../../components/DropDown/DropDownItems/DropDownItems
 
 
 import {
-    PhoneInput,
-    defaultCountries,
-    parseCountry
+    PhoneInput
 } from "react-international-phone";
 
 import "react-international-phone/style.css";
@@ -38,10 +36,11 @@ function Header() {
 
     const [phone, setPhone] = useState("");
     const [showModal, setShowModal] = useState(false)
-    let userIcon = <Icon icon="lucide:user" height="1.5em" />;
-    let notificationIcon = <Icon icon="lucide:bell" width={24} height={24} />;
-    let plusIcon = <Icon icon="lucide:plus" width={24} height={24} />;
+    const [showItemsModal, setShowItemModal] = useState(false)
 
+    const userIcon = <Icon icon="lucide:user" height="1.5em" />;
+    const notificationIcon = <Icon icon="lucide:bell" height="1.5em" />;
+    const plusIcon = <Icon icon="lucide:plus" height="1.5em" />;
 
     return (
         <header className={styles.header}>
@@ -64,77 +63,139 @@ function Header() {
                             </div>
                             <div className={styles.divider}></div>
                             <div className={styles.createOrderBody}>
-                                <div className={styles.customer}>
-                                    <h3>customer</h3>
-                                    <div className={styles.customerNameContainer}>
-                                        {userIcon}
+                                <div className={styles.leftSection}>
+                                    <div className={styles.customer}>
+                                        <h3>Customer</h3>
+
+                                        <div className={styles.customerNameContainer}>
+                                            {userIcon}
+                                            <input
+                                                className={styles.customerName}
+                                                type="text"
+                                                placeholder="Customer Name"
+                                            />
+                                        </div>
+
+                                        <div className={styles.customerPhone}>
+                                            <PhoneInput
+                                                defaultCountry="eg"
+                                                placeholder="Phone Number"
+                                                value={phone}
+                                                onChange={setPhone}
+                                                className={styles.phoneInput}
+                                                inputClassName={styles.phoneInputField}
+                                                countrySelectorStyleProps={{
+                                                    buttonClassName: styles.countryButton,
+                                                }}
+                                                disableDialCodeAndPrefix
+                                            />
+                                        </div>
+
+                                        <div className={styles.locationContainer}>
+                                            <input
+                                                className={styles.locationField}
+                                                type="text"
+                                                id="country"
+                                                name="country"
+                                                placeholder="Country"
+                                            />
+
+                                            <input
+                                                className={styles.locationField}
+                                                type="text"
+                                                id="city"
+                                                name="city"
+                                                placeholder="City"
+                                            />
+                                        </div>
+
                                         <input
-                                            className={styles.customerName}
+                                            className={styles.address}
                                             type="text"
-                                            placeholder="Customer Name"
+                                            id="address"
+                                            name="address"
+                                            placeholder="Address"
                                         />
                                     </div>
 
-                                    <div className={styles.customerPhone}>
-                                        <PhoneInput
-                                            defaultCountry="eg"
-                                            placeholder="Phone Number"
-                                            value={phone}
-                                            onChange={setPhone}
-                                            className={styles.phoneInput}
-                                            inputClassName={styles.phoneInputField}
-                                            countrySelectorStyleProps={{
-                                                buttonClassName: styles.countryButton,
-                                            }}
-                                            disableDialCodeAndPrefix
-                                        />
-                                    </div>
+                                    <div className={styles.delivery}>
+                                        <h3>Delivery</h3>
 
-                                    <div className={styles.locationContainer}>
-                                        <input
-                                            className={styles.locationField}
-                                            type="text"
-                                            id="country"
-                                            name="country"
-                                            placeholder="Country"
-                                        />
-                                        <input
-                                            className={styles.locationField}
-                                            type="text"
-                                            id="city"
-                                            name="city"
-                                            placeholder="City"
-                                        />
-                                    </div>
+                                        <div className={styles.deliveryInfo}>
+                                            <DropdownButton text="STATUS">
+                                                {status.map((statu) => (
+                                                    <DropDownItems key={statu}>{statu}</DropDownItems>
+                                                ))}
+                                            </DropdownButton>
 
-                                    <input
-                                        className={styles.address}
-                                        type="text"
-                                        id="address"
-                                        name="address"
-                                        placeholder="Address"
-                                    />
-                                </div>
-                                <div className={styles.delivery}>
-                                    <h3>Delivery</h3>
+                                            <input
+                                                className={styles.date}
+                                                type="date"
+                                                name="date"
+                                                id="date"
+                                            />
+                                        </div>
 
-                                    <div className={styles.deliveryInfo}>
-                                        <DropdownButton text={"STATUS"}>
-                                            {status.map((statu) => <DropDownItems>{statu}</DropDownItems>)}
+                                        <DropdownButton text="Courier">
+                                            {couriers.map((courier) => (
+                                                <DropDownItems key={courier}>{courier}</DropDownItems>
+                                            ))}
                                         </DropdownButton>
-
-                                        <input
-                                            className={styles.date}
-                                            type="date"
-                                            name="date"
-                                            id="date"
-                                        />
                                     </div>
-                                    <DropdownButton text={"Courier"}>
-                                        {couriers.map((courier) => <DropDownItems>{courier}</DropDownItems>)}
-                                    </DropdownButton>
                                 </div>
+                                <div className={styles.rightSection}>
+                                    <div className={styles.info}>
+                                        <h3>info</h3>
+                                        <div className={styles.info}>
+                                            <div className={styles.paymentSourceContainer}>
+                                                <DropdownButton text="Payment">
+                                                    <DropDownItems>Cash on Delivery</DropDownItems>
+                                                    <DropDownItems>Pre Paid</DropDownItems>
+                                                </DropdownButton>
+                                                <DropdownButton text="Source">
+                                                    <DropDownItems>Facebook</DropDownItems>
+                                                    <DropDownItems>Instagram</DropDownItems>
+                                                    <DropDownItems>TikTok</DropDownItems>
+                                                    <DropDownItems>WhatsApp</DropDownItems>
+                                                    <DropDownItems>Website</DropDownItems>
+                                                    <DropDownItems>Physical Store</DropDownItems>
+                                                    <DropDownItems>Marketplace</DropDownItems>
+                                                    <DropDownItems>Other</DropDownItems>
+                                                </DropdownButton>
+                                            </div>
+                                        </div>
 
+                                    </div>
+                                    <div className={styles.itmes}>
+                                        <div className={styles.itemHeader}>
+                                            <h3>Items</h3>
+                                            <button onClick={() => setShowItemModal(true)} className={styles.itemButton}>
+                                                {plusIcon} Add Items
+                                            </button>
+
+                                        </div>
+                                        <div className={styles.itemBody}>
+                                            {showItemsModal && (
+                                                <div className={styles.itemsModal}>
+                                                    <div className={styles.itemsLabels}>
+                                                        <ul>
+                                                            <li className={styles.idContiner}>
+                                                                <input type="checkbox" className={styles.checkbox} />
+                                                                ID
+                                                            </li>
+                                                            <li>Product</li>
+                                                            <li>Item</li>
+                                                            <li>Bought Price</li>
+                                                            <li>Selling Price</li>
+                                                            <li>Stock</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
 
                             </div>
                             <div className={styles.createOrderFooter}>

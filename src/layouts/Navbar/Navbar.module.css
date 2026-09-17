@@ -48,7 +48,7 @@
 
     background-color: var(--color-primary);
     color: #ffffff;
-    border-radius: 10px;
+    border-radius: var(--radius-lg, 10px);
 
     font-size: clamp(16px, 1.3vw, 20px);
     font-weight: 700;
@@ -77,14 +77,14 @@
 .languageInput {
     width: 100%;
     box-sizing: border-box;
-    padding: 12px;
+    padding: var(--radius-md, 8px);
 
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
 
     border: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: 8px;
+    border-radius: var(--radius-md, 8px);
     outline: none;
 
     font: inherit;
@@ -126,10 +126,10 @@
     width: 100%;
     box-sizing: border-box;
 
-    padding: 8px;
+    padding: var(--radius-md, 8px);
     gap: 12px;
 
-    border-radius: 6px;
+    border-radius: var(--radius-md, 8px);
 }
 
 .icon:hover {
