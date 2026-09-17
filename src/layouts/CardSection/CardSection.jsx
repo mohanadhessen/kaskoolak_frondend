@@ -28,7 +28,7 @@ const CARD_DATA = [
     },
     {
         id: "customer-reports",
-        title: "Total Customer Reports",
+        title: "Customer Reports",
         value: 85,
         previousValue: 92,
     },
