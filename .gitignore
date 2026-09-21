@@ -21,7 +21,7 @@ dist-ssr
 *.png
 *.jpg
 *.jpeg
-*.webp
+
 *.gif
 *.avif
 *.svg.bak

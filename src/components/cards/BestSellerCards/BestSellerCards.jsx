@@ -1,10 +1,10 @@
 import styles from "./BestSellerCards.module.css";
-import blusherImg from "../../../assets/blusher.jpg";
-import mascaraImg from "../../../assets/mascara.jpg";
-import eyebrowGelImg from "../../../assets/eyebrow-gel.jpg";
-import eyelinerImg from "../../../assets/eyeliner.jpg";
-import noteLipstickImg from "../../../assets/note-lipstick.jpg";
-import gucciWalletImg from "../../../assets/gucci-wallet.jpg";
+import blusherImg from "../../../assets/blusher.webp";
+import mascaraImg from "../../../assets/mascara.webp";
+import eyebrowGelImg from "../../../assets/eyebrow-gel.webp";
+import eyelinerImg from "../../../assets/eyeliner.webp";
+import noteLipstickImg from "../../../assets/note-lipstick.webp";
+import gucciWalletImg from "../../../assets/gucci-wallet.webp";
 import Tooltip from "../../Tooltip/Tooltip";
 
 
