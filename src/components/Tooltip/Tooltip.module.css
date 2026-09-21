@@ -1,1 +1,30 @@
+.tooltipContainer{
+    position: relative;
+}
+
+
+.tooltipChildren{
+    position: relative;
+}
+
+.tooltip{
+    width: max-content;
+    background-color: var(--color-card);
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: var(--radius-md);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    border: 3px solid var(--color-actions);
+    visibility: hidden;
+    opacity: 0;
+}
+
+.tooltipChildren:hover .tooltip{
+    visibility: visible;
+    opacity: 1;
+}
 

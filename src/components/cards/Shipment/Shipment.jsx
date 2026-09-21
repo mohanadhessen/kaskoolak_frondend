@@ -1,98 +1,84 @@
-import ReactECharts from "echarts-for-react";
-import { useMemo, useRef, useEffect } from "react";
 import styles from "./Shipment.module.css";
+import ReactECharts from "echarts-for-react";
 
-function getCssVar(name) {
-    return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-}
 
-function MyChart() {
-    const containerRef = useRef(null);
-    const chartRef = useRef(null);
+const data = [
+    {
+        value: 680,
+        name: "Delivered",
+        itemStyle: { color: "#2E8B57" },
+    },
+    {
+        value: 200,
+        name: "In Transit",
+        itemStyle: { color: "#F4B942" },
+    },
+    {
+        value: 80,
+        name: "Exception",
+        itemStyle: { color: "#B85C38" },
+    },
+    {
+        value: 120,
+        name: "Returned",
+        itemStyle: { color: "#D64545" },
+    },
+];
 
-    // Keep the chart's internal size in sync with its actual container size,
-    // since flex/grid layout changes don't fire a window "resize" event.
-    useEffect(() => {
-        const el = containerRef.current;
-        if (!el) return;
+const total = data.reduce((sum, item) => sum + item.value, 0);
 
-        const observer = new ResizeObserver(() => {
-            chartRef.current?.getEchartsInstance().resize();
-        });
-        observer.observe(el);
-
-        return () => observer.disconnect();
-    }, []);
-
-    const data = useMemo(
-        () => [
-            { name: "Delivered", value: 680, itemStyle: { color: getCssVar("--color-shipped") } },
-            { name: "In Transit", value: 200, itemStyle: { color: getCssVar("--color-transit") } },
-            { name: "Exception", value: 80, itemStyle: { color: getCssVar("--color-exception") } },
-            { name: "Returned", value: 120, itemStyle: { color: getCssVar("--color-returned") } },
-        ],
-        []
-    );
-
-    const option = {
-        tooltip: {
-            trigger: "item",
-        },
-
-        legend: {
-            top: 0,
-            left: "center",
-            orient: "horizontal",
-            width: "70%",       // narrower than the container -> forces wrap to 2 rows
-            itemGap: 10,
-            itemWidth: 12,
-            itemHeight: 10,
-            textStyle: { fontSize: 12 },
-        },
-
-        series: [
-            {
-                name: "Shipments",
-                type: "pie",
-                radius: ["40%", "70%"],
-                center: ["50%", "60%"], // shifted down to sit under the 2-row legend
-                avoidLabelOverlap: false,
-                padAngle: 5,
-
-                itemStyle: {
-                    borderRadius: 10,
-                },
-
-                label: {
-                    show: false,
-                },
-
-                emphasis: {
-                    label: {
-                        show: false,
-                    },
-                },
-
-                labelLine: {
-                    show: false,
-                },
-
-                data: data,
+const option = {
+    title: {
+        text: 'Shipment',
+        subtext: `toal ${total}`,
+        left: 'center',
+        padding: 0,
+        top: 0,
+    },
+    tooltip: {
+        trigger: 'item'
+    },
+    legend: {
+        bottom: 0,
+        left: 'center',
+        padding: 0,
+    },
+    series: [
+        {
+            name: 'Access From',
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+                borderRadius: 8,
+                borderColor: '#fff',
+                borderWidth: 4
             },
-        ],
-    };
+            label: {
+                show: false,
+                position: 'center'
+            },
 
+            labelLine: {
+                show: false
+            },
+            data: data
+        }
+    ]
+};
+
+export default function Shipment() {
     return (
-        <div className={styles.Shipment} ref={containerRef}>
-            <div className={styles.chartContainer}>
-                <ReactECharts
-                    ref={chartRef}
-                    option={option}
-                    style={{ height: "100%", width: "100%" }}
-                />
-            </div>
+        <div className={styles.Shipment}>
+            <ReactECharts
+                option={option}
+                notMerge={true}
+                lazyUpdate={true}
+                style={{
+                    width: "100%",
+                    height: "100%",
+                }}
+            />
         </div>
     );
 }
-
-export default MyChart;

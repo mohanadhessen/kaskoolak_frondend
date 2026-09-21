@@ -1,18 +1,8 @@
 .Shipment {
     flex: 1;
-    min-height: 280px;
-    box-sizing: border-box;
-    width: 100%;
     background-color: var(--color-card);
-    padding: var(--radius-xl, 16px);
-    border-radius: var(--radius-xl, 16px);
-    overflow: visible;
-    display: flex;
-    flex-direction: column;
-}
-
-.chartContainer {
-    flex: 1;
-    width: 100%;
+    border-radius: var(--radius-md);
+    padding: var(--radius-xl);
     min-height: 0;
+    
 }

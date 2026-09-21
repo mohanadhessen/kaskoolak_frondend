@@ -18,7 +18,7 @@
   --radius-xl: 16px;
 
   font-family: "Archivo Black", sans-serif;
-  font-size: clamp(12px, 0.9vw, 16px);
+  font-size: clamp(14px, 0.9vw, 16px);
 }
 
 
@@ -60,10 +60,7 @@ select {
   margin: 0;
 }
 
-svg {
-  stroke: var(--color-accent);
 
-}
 
 body {
   background-color: var(--color-background);

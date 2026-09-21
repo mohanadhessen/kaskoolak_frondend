@@ -1,0 +1,88 @@
+
+.tableContainer ul {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    align-items: stretch;
+}
+.tableContainer ul li{
+   display: flex;
+   gap: 8px;
+
+}
+
+.tableContainer ul li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.tableContainer ul li.orderId {
+    justify-content: flex-start;
+    display: flex;
+    gap: 16px;
+}
+
+
+.orderId input {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background-color: var(--color-background);
+    border-radius: var(--radius-xs);
+    cursor: pointer;
+}
+
+.orderId input:hover,
+.orderId input:checked {
+    background-color: var(--color-actions);
+}
+
+
+.orderTable ul li.ellipsis {
+    justify-content: flex-end;
+}
+
+.labels ul li {
+    color: gray;
+    font-weight: 600;
+    position: sticky;
+}
+
+ ul li {
+        padding: var(--radius-xl);
+        
+        
+        
+        
+}
+
+.orderTable ul li{
+    font-weight: 600;
+    
+    
+}
+
+.data ,.orderIdText{
+    color: gray;
+}
+
+
+.selected{
+    background-color: var(--color-actions);
+}
+
+.orderTable ul li.status{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.suqre{
+    height: 0.5rem;
+    aspect-ratio: 1;
+    border-radius: 2px;
+}
+

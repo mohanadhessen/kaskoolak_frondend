@@ -5,8 +5,8 @@ const CARD_DATA = [
     {
         id: "revenue",
         title: "Total Revenue",
-        value: 14.085,
-        previousValue: 10.650,
+        value: 14085,
+        previousValue: 10650,
     },
     {
         id: "profit-margin",

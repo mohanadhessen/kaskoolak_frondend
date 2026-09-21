@@ -4,6 +4,7 @@ import CardSection from "../CardSection/CardSection";
 import Shipment from "../../components/cards/Shipment/Shipment";
 import BestSellerCards from "../../components/cards/BestSellerCards/BestSellerCards";
 import { useEffect, useState } from "react";
+import Table from "../../components/Table/Table";
 
 const searchOptions = ["number", "name", "id"];
 
@@ -69,6 +70,7 @@ function Main() {
                   </div>
                 </div>
               </div>
+              <Table></Table>
             </div>
 
             <div className={styles.ordersFooter}>
