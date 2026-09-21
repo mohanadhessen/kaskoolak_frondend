@@ -5,31 +5,43 @@ import Popover from "../../components/Popover/Popover";
 
 
 
-
 const NOTIFICATIONS = [
     {
         id: 1,
-        type: "order_delivered",
+        type: "order",
         title: "Order delivered",
         message: "Order #ORD-1042 was successfully delivered to عبد الرحمن كمال",
         time: "10 minutes ago",
     },
     {
         id: 2,
-        type: "plan_updated",
-        title: "Plan updated",
-        message: "Your subscription has been upgraded to the Pro plan.",
+        type: "finance",
+        title: "Payment received",
+        message: "You received E£1,250 from order #ORD-1039.",
         time: "1 hour ago",
     },
     {
         id: 3,
-        type: "delivery_exception",
-        title: "Delivery exception",
-        message: "Order #ORD-1038 encountered a delivery issue.",
+        type: "inventory",
+        title: "Low stock",
+        message: 'Your product "Blusher" has only 5 items remaining.',
         time: "2 hours ago",
     },
+    {
+        id: 4,
+        type: "general",
+        title: "Plan updated",
+        message: "Your subscription has been upgraded to the Pro plan.",
+        time: "3 hours ago",
+    },
+    {
+        id: 5,
+        type: "order",
+        title: "Delivery exception",
+        message: "Order #ORD-1038 encountered a delivery issue.",
+        time: "5 hours ago",
+    },
 ];
-
 
 function Header() {
 
@@ -37,9 +49,11 @@ function Header() {
     const notificationIconWithDot = <Icon icon="lucide:bell-dot" height="1.5em" />;
     const notificationIcon = <Icon icon="lucide:bell" height="1.5em" />;
     const plusIcon = <Icon icon="lucide:plus" height="1.5em" />;
-    const check = <Icon icon="akar-icons:check" height="1.2em" />;
-
+    const check = <Icon icon="bi:check-all" height="1em" />;
+    const inventory = <Icon icon="iconmind:inventory-count-outline-bold" height="1.5em" />;
+    const finance = <Icon icon="carbon:money" height="1.5em" />;
     const delivered = <Icon icon="wpf:sent" height="1.5em" />;
+    const info = <Icon icon="lucide:info" height="1.5em" />;
 
     return (
         <header className={styles.header}>
@@ -63,23 +77,53 @@ function Header() {
 
 
                         </div>
-                        
+
                         <div className={styles.notificationBody}>
+                            {NOTIFICATIONS.map((notification) => {
+                                let notificationIcon;
 
-                            <div className={styles.notificationItem}>
-                                <div className={styles.notificationIcon}>
-                                    {delivered}
-                                </div>
+                                switch (notification.type) {
+                                    case "order":
+                                        notificationIcon = delivered;
+                                        break;
 
-                                <div className={styles.notificationContent}>
-                                    <div className={styles.notificationTextHeader}>
-                                        <h4>{NOTIFICATIONS[0].title}</h4>
-                                        <h5 className={styles.time}>{NOTIFICATIONS[0].time}</h5>
+                                    case "finance":
+                                        notificationIcon = finance;
+                                        break;
+
+                                    case "inventory":
+                                        notificationIcon = inventory;
+                                        break;
+
+                                    case "general":
+                                        notificationIcon = info;
+                                        break;
+
+                                    default:
+                                        notificationIcon = info;
+                                }
+
+                                return (
+                                    <div className={styles.notificationItem} key={notification.id}>
+                                        <div className={styles.notificationIcon}>
+                                            {notificationIcon}
+                                        </div>
+
+                                        <div className={styles.notificationContent}>
+                                            <div className={styles.notificationTextHeader}>
+                                                <h4>{notification.title}</h4>
+                                                <h5 className={styles.time}>
+                                                    {notification.time}
+                                                </h5>
+                                            </div>
+
+                                            <p className={styles.message}>
+                                                {notification.message}
+                                            </p>
+                                        </div>
                                     </div>
-                                    <p className={styles.message}>{NOTIFICATIONS[0].message}</p>
-                                </div>
-                            </div>
-
+                                );
+                            })}
                         </div>
 
                         <a href="/notifications" className={styles.notificationFooter}>

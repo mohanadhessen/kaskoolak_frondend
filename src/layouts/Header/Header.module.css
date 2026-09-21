@@ -108,7 +108,7 @@
 .notificationPanel{
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 24px;
 }
 
 .notificationHeader {
@@ -154,7 +154,7 @@
 
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 24px;
 }
 
 .notificationItem {
@@ -166,6 +166,7 @@
 .notificationIcon {
     flex-shrink: 0;
     width: 56px;
+    aspect-ratio: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -236,4 +237,5 @@
 
 .message{
     color: gray;
+    font-size: small;
 }
