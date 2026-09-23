@@ -6,8 +6,15 @@ import DropDownItems from "../../components/DropDown/DropDownItems/DropDownItems
 import { Style, Avatar } from '@dicebear/core';
 import definition from '@dicebear/styles/planets.json' with { type: 'json' };
 import Tooltip from "../../components/Tooltip/Tooltip";
+import { useState } from "react";
+
 
 function Navbar() {
+
+    const [language, setLanguage] = useState("English")
+
+
+
     let homeIcon = <Icon icon="akar-icons:dashboard" height="1.5em" />;
 
     let vanIcon = <Icon icon="hugeicons:van" height="1.5em" />;
@@ -50,11 +57,11 @@ function Navbar() {
                     </div>
 
                     <div className={styles.languageContainer}>
-                        <DropdownButton text={"Language"}>
-                            <DropDownItems>
+                        <DropdownButton text={language}>
+                            <DropDownItems onClick={() => setLanguage("English")}>
                                 English
                             </DropDownItems>
-                            <DropDownItems>
+                            <DropDownItems onClick={() => setLanguage("Arabic")} >
                                 Arabic
                             </DropDownItems>
                         </DropdownButton>

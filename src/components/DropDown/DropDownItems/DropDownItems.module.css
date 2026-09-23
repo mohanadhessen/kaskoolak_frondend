@@ -1,6 +1,5 @@
 .dropDownItems {
     padding: var(--radius-md);
-    border-radius: var(--radius-sm);
     cursor: pointer;
     transition: background-color 0.15s ease;
 }

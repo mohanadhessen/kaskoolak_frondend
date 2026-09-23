@@ -105,7 +105,7 @@
     fill: var(--color-returned);
 }
 
-.notificationPanel{
+.notificationPanel {
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -129,20 +129,29 @@
 .check:hover {
     background-color: var(--color-actions);
     color: black;
-    
+
 }
 
 .check:hover span {
     color: black;
-    
+
+}
+
+.check:hover svg {
+    stroke: black;
+
 }
 
 .check span {
     font-weight: 600;
-    color: gray;
+    color: var(--color-primary);
 
 }
 
+.check svg {
+
+    stroke: var(--color-primary);
+}
 
 .notificationBody {
     width: 100%;
@@ -192,7 +201,7 @@
     display: none;
 }
 
-.notificationFooter{
+.notificationFooter {
     width: 100%;
     background-color: var(--color-background);
     padding: var(--radius-md);
@@ -205,37 +214,37 @@
 
 }
 
-.notificationFooter:hover{
+.notificationFooter:hover {
     background-color: var(--color-actions);
     color: black;
 }
 
 
-.notificationTextHeader{
+.notificationTextHeader {
     display: flex;
     justify-content: space-between;
     gap: 12px;
 }
 
-.time{
+.time {
     color: gray;
 
 }
 
-.notificationType{
+.notificationType {
     display: flex;
     justify-content: space-between;
     gap: 8px;
 }
 
-.notificationType button{
+.notificationType button {
     flex: 1;
     justify-content: center;
     align-items: center;
     background-color: var(--color-background);
 }
 
-.message{
+.message {
     color: gray;
     font-size: small;
 }

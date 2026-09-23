@@ -23,7 +23,7 @@ const MOCK_BEST_SELLERS = [
     image: mascaraImg,
     price: "E£ 180",
     sold: 280,
-    stock: 12,
+    stock: 8,
   },
   {
     id: 3,
@@ -39,7 +39,7 @@ const MOCK_BEST_SELLERS = [
     image: eyelinerImg,
     price: "E£ 150",
     sold: 195,
-    stock: 8,
+    stock: 18,
   },
 
 ];
@@ -54,7 +54,10 @@ export default function BestSellerCards() {
       </div>
       <div className={styles.bestSellersBody}>
         {MOCK_BEST_SELLERS.map((item) => (
-          <div className={styles.bestSellersCard} key={item.id}>
+          <div
+            className={`${styles.bestSellersCard} ${item.stock < 10 ? styles.lowStock : ""}`}
+            key={item.id}
+          >
             <div className={styles.procutInfo}>
               <img src={item.image} alt={item.name} />
 

@@ -53,3 +53,7 @@
     color: gray;
 }
 
+
+.lowStock {
+    color: var(--color-returned);
+}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState , useEffect , useRef} from "react";
 import styles from "./DropDownButton.module.css";
 import { Icon } from "@iconify/react";
 import DropDownMenu from "../DropDownMenu/DropDownMenu.jsx";
@@ -9,9 +9,25 @@ let UpArrow = <Icon icon="lucide:chevron-up" height="1.5em" />;
 export default function DropdownButton({ text, children }) {
     const [open, setOpen] = useState(false);
 
+       let dropRef = useRef();
+    
+       
+        useEffect(() => {
+    
+            let handler = (e) => {
+                if (!dropRef.current.contains(e.target)) { setOpen(false) }
+            }
+    
+            document.addEventListener("mousedown", handler)
+            return () => {
+                document.removeEventListener("mousedown",handler)
+            }
+        })
+    
+
     return (
         <div className={styles.dropdownContainer}>
-            <div className={styles.dropdownWrapper}>
+            <div className={styles.dropdownWrapper} ref={dropRef}>
                 <button
                     onClick={() => setOpen(prev => !prev)}
                     className={`${styles.dropdownButton} ${open ? styles.open : ""}`}
@@ -23,7 +39,7 @@ export default function DropdownButton({ text, children }) {
                     </span>
                 </button>
 
-                <DropDownMenu open={open}>
+                <DropDownMenu open={open} toggle={() => setOpen(false)}>
                     {children}
                 </DropDownMenu>
             </div>

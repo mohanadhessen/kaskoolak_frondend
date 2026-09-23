@@ -1,11 +1,11 @@
 .DropDownMenu {
     position: absolute;
-    top: calc(100% + 16px);
+    top: calc(100% + 8px);
     left: 0;
     width: 100%;
 
-    background-color: white;
-    padding: var(--radius-lg);
+    background-color: var(--color-card);
+    /* padding: var(--radius-lg); */
     border-radius: var(--radius-sm);
     font-weight: 600;
     font-size: 14px;
