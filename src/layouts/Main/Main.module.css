@@ -84,19 +84,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 20px;
+
     background-color: var(--color-card);
 
     flex: 1;
-    min-height: 0;
+    
 }
 
-.ordersContent {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    min-height: 0;
-}
 
 .searchBar {
     display: flex;
@@ -139,15 +133,9 @@
 .ordersHeader {
     display: flex;
     justify-content: space-between;
-    padding: var(--radius-xl);
+    padding: var(--radius-xl) var(--radius-xl) 0 var(--radius-xl);
 }
 
-.orderActionSection {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-}
 
 .orderBody {
     width: 100%;

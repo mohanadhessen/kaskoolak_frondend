@@ -2,7 +2,8 @@
 .tableContainer ul {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    align-items: stretch;
+
+
 }
 .tableContainer ul li{
    display: flex;
@@ -10,8 +11,9 @@
 
 }
 
+
+
 .tableContainer ul li {
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,6 +51,7 @@
     color: gray;
     font-weight: 600;
     position: sticky;
+
 }
 
  ul li {
