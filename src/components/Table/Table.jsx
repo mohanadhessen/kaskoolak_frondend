@@ -53,7 +53,7 @@ function Table() {
               </li>
               <li className={styles.customer}>{order.customer}</li>
               <li className={styles.amount}>E£ {order.amount}</li>
-              <li>{order.courier}</li>
+              <li className={styles.courier}>{order.courier}</li>
               <li className={styles.status}
                 style={{
                   color:
@@ -77,7 +77,7 @@ function Table() {
                 />
                 {order.status}
               </li>
-              <li className={styles.data}>{order.date}</li>
+              <li className={styles.date}>{order.date}</li>
               <li className={styles.Action}><button type="button">{ellipsis}</button></li>
             </ul>
           )

@@ -2,21 +2,40 @@
 .tableContainer ul {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-
-
-}
-.tableContainer ul li{
-   display: flex;
-   gap: 8px;
+      
 
 }
+
+.tableContainer .orderId input {
+    width: 1rem;
+    height: 1rem;
+
+    background-color: var(--color-background);
+    
+}
+
+.tableContainer .orderId input:hover{
+    background-color: var(--color-actions);
+}
+
+.tableContainer .orderId span{
+    color: gray;
+} 
 
 
 
 .tableContainer ul li {
     display: flex;
     justify-content: center;
-    align-items: center;
+    
+    font-weight: 600;
+    padding: 20px;
+    gap: 8px;
+    
+}
+.labels ul li {
+    color: gray;
+    
 }
 
 
@@ -24,68 +43,28 @@
 .tableContainer ul li.orderId {
     justify-content: flex-start;
     display: flex;
-    gap: 16px;
+    gap: 1.5rem;
 }
 
 
-.orderId input {
-    appearance: none;
-    width: 18px;
-    height: 18px;
-    background-color: var(--color-background);
-    border-radius: var(--radius-xs);
-    cursor: pointer;
-}
-
-.orderId input:hover,
-.orderId input:checked {
-    background-color: var(--color-actions);
-}
-
-
-.orderTable ul li.ellipsis {
-    justify-content: flex-end;
-}
-
-.labels ul li {
-    color: gray;
-    font-weight: 600;
-    position: sticky;
-
-}
-
- ul li {
-        padding: var(--radius-xl);
-        
-        
-        
-        
-}
-
-.orderTable ul li{
-    font-weight: 600;
-    
-    
-}
-
-.data ,.orderIdText{
+.courier , .date{
     color: gray;
 }
 
 
-.selected{
-    background-color: var(--color-actions);
-}
-
-.orderTable ul li.status{
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.customer{
+    font-size: medium;
+    
 }
 
 .suqre{
+    width: 0.5rem;
     height: 0.5rem;
-    aspect-ratio: 1;
-    border-radius: 2px;
 }
 
+.status{
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
