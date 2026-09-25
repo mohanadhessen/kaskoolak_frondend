@@ -2,6 +2,8 @@ import styles from "./Table.module.css";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 
+import Popover from "../Popover/Popover";
+
 const ellipsis = <Icon icon="lucide:ellipsis" height="1.5em" />;
 const filter = <Icon icon="fluent:filter-12-filled" height="1.25em" />;
 
@@ -21,6 +23,7 @@ const orders = [
 
 
 
+
 function Table() {
 
   const [isCheckedAll, setIsCheckedAll] = useState(false);
@@ -33,7 +36,11 @@ function Table() {
             <input type="checkbox" checked={isCheckedAll} onChange={(e) => setIsCheckedAll(e.target.checked)} />
             <span>Order</span>
           </li>
-          <li>Customer <button type="button">{filter}</button></li>
+          <li> Customer<Popover
+            trigger={<button type="button"> {filter}</button>}>
+            
+          </Popover>
+          </li>
           <li>Amount <button type="button">{filter}</button></li>
           <li>Courier <button type="button">{filter}</button></li>
           <li>Status <button type="button">{filter}</button></li>
