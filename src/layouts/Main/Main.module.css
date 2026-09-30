@@ -575,6 +575,13 @@
 
 
 
-.filterBody button:hover{
+.filterBody button:hover,
+.filterBody input[type="text"]:hover {
     background-color: var(--color-actions);
+    color: black;
+}
+
+.filterBody input[type="text"]::placeholder {
+    font-weight: 600;
+    
 }

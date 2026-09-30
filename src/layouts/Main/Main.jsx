@@ -8,67 +8,81 @@ import Table, { orders } from "../../components/Table/Table";
 import Tooltip from "../../components/Tooltip/Tooltip";
 
 
+
+
+
 const AMOUNT_LIMIT = 100000;
 
 function AmountRange() {
-  const [minAmount, setMinAmount] = useState(0);
-  const [maxAmount, setMaxAmount] = useState(AMOUNT_LIMIT);
-  const minPercent = (minAmount / AMOUNT_LIMIT) * 100;
-  const maxPercent = (maxAmount / AMOUNT_LIMIT) * 100;
+  const [minAmount, setMinAmount] = useState("");
+  const [maxAmount, setMaxAmount] = useState("");
+
+  const min = Math.min(Math.max(Number(minAmount) || 0, 0), AMOUNT_LIMIT);
+  const max = Math.max(
+    min,
+    Math.min(Math.max(Number(maxAmount) || AMOUNT_LIMIT, 0), AMOUNT_LIMIT)
+  );
+
+  const percent = (value) => `${(value / AMOUNT_LIMIT) * 100}%`;
 
   return (
     <div className={styles.amountFilterContainer}>
       <h3>Amount Range</h3>
+
       <div className={styles.amountOptions}>
         <input
-          type="number"
+          type="text"
+          inputMode="numeric"
           className={styles.amountInput}
-          min="0"
-          max={maxAmount}
-          value={minAmount}
-          onChange={(event) => setMinAmount(Math.min(Number(event.target.value), maxAmount))}
-          onFocus={(event) => event.target.select()}
-          
+          placeholder="min"
+          value={min === 0 ? "" : minAmount}
+          onChange={(e) => setMinAmount(e.target.value)}
+          onFocus={(e) => e.target.select()}
         />
+
         <div className={styles.amountSlider}>
-          <div className={styles.amountTrack}></div>
+          <div className={styles.amountTrack} />
+
           <div
             className={styles.amountFill}
-            style={{ left: `${minPercent}%`, right: `${100 - maxPercent}%` }}
+            style={{
+              left: percent(min),
+              right: percent(AMOUNT_LIMIT - max),
+            }}
           />
+
           <input
             type="range"
             aria-label="Minimum amount"
             className={`${styles.range} ${styles.rangeMin}`}
-            min="0"
             max={AMOUNT_LIMIT}
-            value={minAmount}
-            onChange={(event) => setMinAmount(Math.min(Number(event.target.value), maxAmount))}
+            value={min}
+            onChange={(e) => setMinAmount(e.target.value)}
           />
+
           <input
             type="range"
             aria-label="Maximum amount"
             className={`${styles.range} ${styles.rangeMax}`}
-            min="0"
             max={AMOUNT_LIMIT}
-            value={maxAmount}
-            onChange={(event) => setMaxAmount(Math.max(Number(event.target.value), minAmount))}
+            value={max}
+            onChange={(e) => setMaxAmount(e.target.value)}
           />
         </div>
+
         <input
-          type="number"
+          type="text"
+          inputMode="numeric"
           className={styles.amountInput}
-          min={minAmount}
-          max={AMOUNT_LIMIT}
-          value={maxAmount}
-          onChange={(event) => setMaxAmount(Math.max(Number(event.target.value), minAmount))}
-          onFocus={(event) => event.target.select()}
+          placeholder="max"
+          value={max === AMOUNT_LIMIT ? "" : maxAmount}
+          onChange={(e) => setMaxAmount(e.target.value)}
+          onFocus={(e) => e.target.select()}
         />
       </div>
     </div>
   );
 }
-
 const searchOptions = ["number", "name", "id"];
 const couriers = [...new Set(orders.map((order) => order.courier))];
 
@@ -120,7 +134,7 @@ function Main() {
   const left = <Icon icon="lucide:chevron-left" height="1.5rem" />;
   const cancel = <Icon icon="lucide:x" height="1.5rem" />;
   const filter = <Icon icon="lucide:filter" height="1.5rem" />;
-  const [filters, setFilters] = useState(["completed", "pending", "cancelled"])
+  const [filters, setFilters] = useState([])
   const [open, setOpen] = useState(false)
 
   return (
