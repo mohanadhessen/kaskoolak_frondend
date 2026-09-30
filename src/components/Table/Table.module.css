@@ -1,8 +1,15 @@
+.tableContainer {
+    width: 100%;
+    overflow: hidden;
+
+}
+
 
 .tableContainer ul {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-      
+    min-width: 620px;
+    padding: var(--radius-sm) var(--radius-xl);
 
 }
 
@@ -11,60 +18,120 @@
     height: 1rem;
 
     background-color: var(--color-background);
-    
+
 }
 
-.tableContainer .orderId input:hover{
+.tableContainer .orderId input:hover {
     background-color: var(--color-actions);
 }
 
-.tableContainer .orderId span{
+.tableContainer .orderId span {
     color: gray;
-} 
+}
 
 
 
 .tableContainer ul li {
     display: flex;
     justify-content: center;
-    
+    align-items: center;
     font-weight: 600;
-    padding: 20px;
+    padding: 12px 8px;
     gap: 8px;
-    
 }
+
 .labels ul li {
     color: gray;
-    
+
 }
+
 
 
 
 .tableContainer ul li.orderId {
     justify-content: flex-start;
     display: flex;
-    gap: 1.5rem;
+    align-items: center;
+    gap: 10px;
 }
 
 
-.courier , .date{
+.courier,
+.date {
     color: gray;
 }
 
 
-.customer{
+.customer {
     font-size: medium;
-    
+
 }
 
-.suqre{
+.suqre {
     width: 0.5rem;
     height: 0.5rem;
 }
 
-.status{
+.status {
     display: flex;
     gap: 8px;
     justify-content: center;
     align-items: center;
+}
+
+
+.filters {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.filterContainer {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+
+
+}
+
+.filterContainer button {
+
+    display: flex;
+    padding: var(--radius-xl);
+    border-radius: var(--radius-xs);
+    white-space: nowrap;
+    width: 100%;
+
+}
+
+.filterContainer button:hover {
+
+    background-color: var(--color-actions);
+    color: black;
+
+}
+
+.filterPopover {
+    position: absolute;
+    background-color: var(--color-card);
+    z-index: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    border-radius: var(--radius-sm);
+    left: 50%;
+    transform: translateX(-50%);
+    top: 2.5rem;
+}
+
+
+.divider {
+    height: 1px;
+    width: calc(100% - 32px);
+    background-color: color-mix(in srgb, gray 15%, transparent);
+    align-self: center;
+}
+
+.labels {
+    display: flex;
+    flex-direction: column;
 }

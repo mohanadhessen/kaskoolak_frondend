@@ -1,5 +1,22 @@
 import styles from "./Shipment.module.css";
-import ReactECharts from "echarts-for-react";
+import { memo } from "react";
+import ReactEChartsCore from "echarts-for-react/esm/core";
+import * as echarts from "echarts/core";
+import { PieChart } from "echarts/charts";
+import {
+    TitleComponent,
+    TooltipComponent,
+    LegendComponent,
+} from "echarts/components";
+import { CanvasRenderer } from "echarts/renderers";
+
+echarts.use([
+    TitleComponent,
+    TooltipComponent,
+    LegendComponent,
+    PieChart,
+    CanvasRenderer,
+]);
 
 
 const data = [
@@ -67,10 +84,11 @@ const option = {
     ]
 };
 
-export default function Shipment() {
+function Shipment() {
     return (
         <div className={styles.Shipment}>
-            <ReactECharts
+            <ReactEChartsCore
+                echarts={echarts}
                 option={option}
                 notMerge={true}
                 lazyUpdate={true}
@@ -82,3 +100,5 @@ export default function Shipment() {
         </div>
     );
 }
+
+export default memo(Shipment);

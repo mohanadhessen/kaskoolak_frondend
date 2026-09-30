@@ -88,28 +88,40 @@
     background-color: var(--color-card);
 
     flex: 1;
-    
+    overflow: hidden;
+
+}
+
+.ordersContent {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    gap: 12px;
 }
 
 
 .searchBar {
+    align-self: stretch;
     display: flex;
+    align-items: center;
     gap: 8px;
     background-color: var(--color-background);
     width: fit-content;
-    border-radius: var(--radius-md);
-    padding: var(--radius-lg);
+    border-radius: var(--radius-xs);
+    padding-left: var(--radius-lg);
     transition: background-color 0.2s ease;
 }
 
+
 .searchBar svg {
-    height: 20px;
-    width: 20px;
-    opacity: 0.3;
+    color: gray;
+    stroke: currentColor;
 }
 
 .searchBar input {
-    background: transparent;
+
+    height: 33px;
+
     border: none;
     outline: none;
     appearance: none;
@@ -117,7 +129,7 @@
 }
 
 .searchBar input::placeholder {
-    opacity: 0.7;
+    color: gray;
 }
 
 .searchBar input::-webkit-search-cancel-button {
@@ -128,10 +140,13 @@
 .searchBar:hover,
 .searchBar:focus-within {
     background-color: var(--color-actions);
+
 }
 
 .ordersHeader {
+
     display: flex;
+    align-items: center;
     justify-content: space-between;
     padding: var(--radius-xl) var(--radius-xl) 0 var(--radius-xl);
 }
@@ -156,7 +171,7 @@
 .ordersFooter {
     display: flex;
     justify-content: space-between;
-    padding: 0 var(--radius-xl) var(--radius-xl) var(--radius-xl);
+    padding: var(--radius-md) var(--radius-xl) var(--radius-xl) var(--radius-xl);
     align-items: center;
 }
 
@@ -182,8 +197,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: none;
-    border-radius: var(--radius-sm, 6px);
+    border-radius: var(--radius-sm);
+    color: gray;
+    font-weight: 600;
+
 }
 
 .footerButton svg {
@@ -196,11 +213,362 @@
     background-color: var(--color-background);
 }
 
-.selected {
-    background-color: var(--color-background);
-    font-weight: 600;
-}
+
 
 .footerButton:hover {
     background-color: var(--color-background);
+    color: black;
+}
+
+
+.selected {
+    background-color: var(--color-actions);
+
+    color: black;
+}
+
+.selected:hover {
+
+    background-color: var(--color-actions);
+}
+
+
+.titleAndFilters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px 16px;
+}
+
+.filterCard {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 8px 14px;
+
+    border-radius: var(--radius-xs);
+    background: var(--color-background);
+    color: gray;
+
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.filterNumber {
+    padding: 8px 14px;
+    border-radius: var(--radius-xs);
+    background: var(--color-actions);
+    font-weight: 600;
+    color: gray;
+
+}
+
+
+.filterCard svg {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 auto;
+    stroke-width: 1.75;
+    display: block;
+
+}
+
+
+.filterContainer {
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.clearAllBtn {
+    color: gray;
+    font-weight: 600;
+}
+
+.clearAllBtn:hover {
+    color: var(--color-returned);
+}
+
+
+
+.filterCard button:hover {
+    color: var(--color-returned);
+}
+
+
+.orderActionSection {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.filterBtn {
+    color: gray;
+    stroke: currentColor;
+
+}
+
+.filterWrapper {
+    position: relative;
+}
+
+
+.filterPopover {
+    position: absolute;
+    background-color: var(--color-card);
+    padding: var(--radius-xl);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    right: calc(100% - 1.5rem);
+    top: calc(100% + 16px);
+    border-radius: var(--radius-xs);
+    display: flex;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+
+.filterPopoverFooter {
+    white-space: nowrap;
+    width: 394px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    color: gray;
+}
+
+.filterSubmitBtn {
+    padding: var(--radius-lg) 16px;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: var(--radius-xs);
+}
+
+.filterSubmitBtn:hover {
+    background-color: var(--color-actions);
+    color: black;
+}
+
+.resetFiltersBtn:hover {
+    color: var(--color-returned);
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: color-mix(in srgb, gray 15%, transparent);
+
+}
+
+
+
+.filterBody {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.statusOptions {
+    display: flex;
+    gap: 16px;
+}
+
+.statusOptions button {
+    flex: 1;
+    background-color: var(--color-background);
+    padding: var(--radius-md);
+    border-radius: var(--radius-xs);
+    font-weight: 600;
+    color: gray;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.statusFilterContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.courierFilterContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.courierOptions {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr));
+    gap: 16px;
+}
+
+.courierOptions button {
+    width: 100%;
+    background-color: var(--color-background);
+    padding: var(--radius-md);
+    border-radius: var(--radius-xs);
+    font-weight: 600;
+    color: gray;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.dateFilterContainer,
+.amountFilterContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+
+.dateOptions {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr));
+    gap: 16px;
+}
+
+.dateOptions button {
+    white-space: nowrap;
+    width: 100%;
+    background-color: var(--color-background);
+    padding: var(--radius-md);
+    border-radius: var(--radius-xs);
+    font-weight: 600;
+    color: gray;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.range {
+    width: 50%;
+    height: 4px;
+    background: var(--color-secondary);
+}
+
+.amountOptions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.amountInput {
+    width: 72px;
+    padding: var(--radius-md);
+    background-color: var(--color-background);
+    border-radius: var(--radius-xs);
+    color: var(--color-primary);
+    outline: none;
+    appearance: textfield;
+}
+
+.amountInput::-webkit-inner-spin-button,
+.amountInput::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+}
+
+.amountSlider {
+    position: relative;
+    flex: 1;
+    height: 24px;
+}
+
+.amountTrack,
+.amountFill {
+    position: absolute;
+    top: 50%;
+    height: 4px;
+    border-radius: 999px;
+    transform: translateY(-50%);
+}
+
+.amountTrack {
+    left: 0;
+    right: 0;
+    background-color: var(--color-secondary);
+}
+
+.amountFill {
+    background-color: var(--color-primary);
+}
+
+.range {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1.5rem;
+    padding: 0;
+    margin: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    border: 0;
+    background: transparent;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.rangeMin {
+    z-index: 2;
+}
+
+.rangeMax {
+    z-index: 1;
+}
+
+.range::-webkit-slider-runnable-track {
+    height: 4px;
+    background: transparent;
+}
+
+.range::-moz-range-track {
+    height: 4px;
+    background: transparent;
+}
+
+.range::-webkit-slider-thumb {
+    width: 1rem;
+    height: 1rem;
+    margin-top: -6px;
+    appearance: none;
+    -webkit-appearance: none;
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    background: var(--color-primary);
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.range::-moz-range-thumb {
+    width: 0.75rem;
+    height: 0.75rem;
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    background: var(--color-primary);
+    pointer-events: auto;
+    cursor: pointer;
 }

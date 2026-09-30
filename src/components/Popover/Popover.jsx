@@ -2,22 +2,23 @@ import styles from "./Popover.module.css";
 import React, { useState, useEffect, useRef } from "react";
 
 
-export default function Popover({ trigger, children }) {
+export default function Popover({ trigger, children, className }) {
     const [isOpen, setIsOpen] = useState(false);
 
     let popRef = useRef();
 
     useEffect(() => {
-
         let handler = (e) => {
-            if (!popRef.current.contains(e.target)) { setIsOpen(false) }
-        }
+            if (popRef.current && !popRef.current.contains(e.target)) {
+                setIsOpen(false);
+            }
+        };
 
-        document.addEventListener("mousedown", handler)
+        document.addEventListener("mousedown", handler);
         return () => {
-            document.removeEventListener("mousedown",handler)
-        }
-    })
+            document.removeEventListener("mousedown", handler);
+        };
+    }, []);
 
 
     return (
@@ -27,7 +28,7 @@ export default function Popover({ trigger, children }) {
             </div>
 
             {isOpen && (
-                <div className={styles.popover}>
+                <div className={className}>
                     {children}
                 </div>
             )}

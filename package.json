@@ -10,11 +10,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@coreui/react": "^5.13.0",
     "@dicebear/core": "^10.7.0",
     "@dicebear/styles": "^10.6.0",
+    "@iconify-icons/akar-icons": "^2.0.0",
+    "@iconify-icons/bi": "^2.0.1",
+    "@iconify-icons/carbon": "^2.0.3",
+    "@iconify-icons/hugeicons": "^2.0.2",
+    "@iconify-icons/iconmind": "^2.0.2",
+    "@iconify-icons/material-symbols": "^2.0.4",
+    "@iconify-icons/wpf": "^2.0.0",
     "@iconify/react": "^6.0.2",
     "echarts": "^6.1.0",
     "echarts-for-react": "^3.0.6",
+    "lucide-react": "^1.48.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-international-phone": "^4.8.0"

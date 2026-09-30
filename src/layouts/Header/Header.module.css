@@ -22,13 +22,13 @@
 
 .orderCreationBtn {
     height: 48px;
-    padding: 0 var(--radius-md, 8px);
+    padding: var(--radius-md) 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
     background-color: var(--color-primary);
-    border-radius: var(--radius-md, 8px);
+    border-radius: var(--radius-sm);
     border: none;
     outline: none;
     color: var(--color-card);
@@ -37,7 +37,7 @@
     font-size: clamp(13px, 1vw, 16px);
     font-weight: 600;
     line-height: 1;
-
+    border: 1px var(--color-primary) solid;
     cursor: pointer;
 }
 
@@ -46,17 +46,12 @@
 }
 
 .orderCreationBtn:hover {
-    transform: translateY(-2px);
-    background-color: color-mix(in srgb,
-            var(--color-primary) 90%,
-            black);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    border: 1px var(--color-primary) solid;
+    background-color: var(--color-actions);
+    color: black;
 }
 
-.orderCreationBtn:active {
-    transform: translateY(0);
-    box-shadow: none;
-}
+
 
 .notification {
     background: none;
@@ -116,6 +111,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 }
 
 
@@ -139,6 +135,7 @@
 
 .check:hover svg {
     stroke: black;
+    fill: black;
 
 }
 
@@ -247,4 +244,17 @@
 .message {
     color: gray;
     font-size: small;
+}
+
+
+.customerPopover{
+    background-color: var(--color-card);
+    position: absolute;
+    right: calc(100% - 1.5rem);
+    top: 2.5rem;
+    z-index: 1;
+    padding: var(--radius-xl);
+    border-radius: var(--radius-sm);
+    
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }

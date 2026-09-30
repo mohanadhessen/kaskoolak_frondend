@@ -13,16 +13,17 @@ export default function DropdownButton({ text, children }) {
     
        
         useEffect(() => {
-    
             let handler = (e) => {
-                if (!dropRef.current.contains(e.target)) { setOpen(false) }
-            }
-    
-            document.addEventListener("mousedown", handler)
+                if (dropRef.current && !dropRef.current.contains(e.target)) {
+                    setOpen(false);
+                }
+            };
+
+            document.addEventListener("mousedown", handler);
             return () => {
-                document.removeEventListener("mousedown",handler)
-            }
-        })
+                document.removeEventListener("mousedown", handler);
+            };
+        }, []);
     
 
     return (

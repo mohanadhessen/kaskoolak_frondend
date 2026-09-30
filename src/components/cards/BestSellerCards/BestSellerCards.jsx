@@ -3,9 +3,8 @@ import blusherImg from "../../../assets/blusher.webp";
 import mascaraImg from "../../../assets/mascara.webp";
 import eyebrowGelImg from "../../../assets/eyebrow-gel.webp";
 import eyelinerImg from "../../../assets/eyeliner.webp";
-import noteLipstickImg from "../../../assets/note-lipstick.webp";
-import gucciWalletImg from "../../../assets/gucci-wallet.webp";
 import Tooltip from "../../Tooltip/Tooltip";
+import { memo } from "react";
 
 
 const MOCK_BEST_SELLERS = [
@@ -45,7 +44,7 @@ const MOCK_BEST_SELLERS = [
 ];
 
 
-export default function BestSellerCards() {
+function BestSellerCards() {
   return (
     <div className={styles.bestSellers}>
       <div className={styles.bestSellersHeader}>
@@ -74,3 +73,5 @@ export default function BestSellerCards() {
     </div>
   )
 }
+
+export default memo(BestSellerCards);

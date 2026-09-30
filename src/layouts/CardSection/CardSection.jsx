@@ -1,5 +1,6 @@
 import styles from "./CardSection.module.css";
 import DashboardCard from "../../components/DashboardCard/DashboardCard";
+import { memo } from "react";
 
 const CARD_DATA = [
     {
@@ -49,4 +50,4 @@ function CardSection({ cards = CARD_DATA }) {
     );
 }
 
-export default CardSection;
+export default memo(CardSection);

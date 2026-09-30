@@ -62,10 +62,13 @@ function Header() {
                     <button
                         className={`${styles.icon} ${styles.notification}`}
                         aria-label="Notifications"
+
                     >
                         {notificationIconWithDot}
                     </button>
-                }>
+                }
+                    className={styles.customerPopover}
+                    >
                     <div className={styles.notificationPanel}>
 
                         <div className={styles.notificationHeader}>

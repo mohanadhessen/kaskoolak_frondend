@@ -6,12 +6,25 @@ import DropDownItems from "../../components/DropDown/DropDownItems/DropDownItems
 import { Style, Avatar } from '@dicebear/core';
 import definition from '@dicebear/styles/planets.json' with { type: 'json' };
 import Tooltip from "../../components/Tooltip/Tooltip";
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 
 function Navbar() {
+    const [language, setLanguage] = useState(() => {
+        const savedLanguage = localStorage.getItem("language");
 
-    const [language, setLanguage] = useState("English")
+        if (savedLanguage) {
+            return savedLanguage;
+        }
+
+        return navigator.language.startsWith("ar")
+            ? "Arabic"
+            : "English";
+    });
+    useEffect(() => {
+        localStorage.setItem("language", language);
+    }, [language]);
+
 
 
 
@@ -25,17 +38,17 @@ function Navbar() {
     let helpIcon = <Icon icon="lucide:headphones" height="1.5em" />;
     let leftArrow = <Icon icon="lucide:chevron-right" height="1.5em" />;
     let PanelLeft = <Icon icon="lucide:panel-left" height="1.5em" />;
-    let DownArrow = <Icon icon="lucide:chevron-down" height="1.5em" />;
 
 
 
-    const style = new Style(definition);
 
-    const avatar = new Avatar(style, {
-        planetColor: ["e27a8c", "e37f64", "d88a40", "c1982a", "d67cb2"]
-    });
-
-    const svg = avatar.toString();
+    const svg = useMemo(() => {
+        const style = new Style(definition);
+        const avatar = new Avatar(style, {
+            planetColor: ["e27a8c", "e37f64", "d88a40", "c1982a", "d67cb2"]
+        });
+        return avatar.toString();
+    }, []);
 
     return (
         <nav className={styles.navbar}>
