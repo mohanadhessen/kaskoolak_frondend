@@ -88,7 +88,7 @@
     background-color: var(--color-card);
 
     flex: 1;
-    overflow: hidden;
+    overflow: visible;
 
 }
 
@@ -571,4 +571,10 @@
     background: var(--color-primary);
     pointer-events: auto;
     cursor: pointer;
+}
+
+
+
+.filterBody button:hover{
+    background-color: var(--color-actions);
 }
