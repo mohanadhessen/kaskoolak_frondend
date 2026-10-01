@@ -1,0 +1,76 @@
+.TableHeader{
+    display: flex;
+    justify-content: space-between;
+    padding: var(--radius-xl) ;
+    align-items: center;
+    
+}
+
+
+.orderActionSection{
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.searchBar{
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    background-color: var(--color-background);
+    border-radius: var(--radius-sm);
+    padding: var(--radius-sm);
+    gap: 8px;
+}
+
+.leftGroup{
+    display: flex;
+    gap: 16px;
+}
+
+.filterCardsContainer{
+    display: flex;
+    gap: 8px;
+}
+
+.filterCard{
+    display: flex;
+    height: fit-content;
+    background-color: var(--color-background);
+    padding:  var(--radius-sm) var(--radius-lg) ;
+    border-radius: var(--radius-xs);
+    gap: 8PX;
+    align-items: center;
+    font-weight: 600;
+    color: gray;
+}
+
+.filterCard button{
+    display: flex;
+    align-items: center;
+}
+
+.filterCard svg:hover{
+  color: var(--color-returned);
+}
+
+.moreFilters{
+    height: fit-content;
+    background-color: var(--color-actions);
+    padding: var(--radius-sm);
+    border-radius: var(--radius-xs);
+    font-weight: 600;
+}
+
+
+.filterWrapper{
+    position: relative;
+}
+
+.filterPopoverContainer{
+    position: absolute;
+    background-color: var(--color-card);
+    padding: var(--radius-lg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}

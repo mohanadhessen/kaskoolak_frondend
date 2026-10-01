@@ -2,7 +2,7 @@
     flex-grow: 1;
     flex-shrink: 1;
     min-width: 185px;
-    /* max-width: 326px; */
+
 
     min-height: 120px;
 
@@ -31,7 +31,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: 600;
-    opacity: 0.4;
+    color: gray;
 }
 
 .change {
@@ -99,5 +99,5 @@
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: 600;
-    opacity: 0.4;
+    color: gray;
 }

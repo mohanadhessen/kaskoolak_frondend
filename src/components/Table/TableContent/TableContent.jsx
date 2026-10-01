@@ -1,13 +1,9 @@
-import styles from "./Table.module.css";
+import styles from "./TableContent.module.css";
 import { Icon } from "@iconify/react";
 import { memo, useState } from "react";
 
-import Popover from "../Popover/Popover";
-
 const ellipsis = <Icon icon="lucide:ellipsis" height="1.5em" />;
 const sort = <Icon icon="lucide:arrow-down-up" height="1em" />;
-
-
 
 export const orders = [
   { order: "#ORD15", customer: "عبد الرحمن كمال", amount: 160, courier: "Bosta", status: "Completed", date: "12 SEP 2026" },
@@ -19,15 +15,7 @@ export const orders = [
   { order: "#ORD9", customer: "بهنس", amount: 100, courier: "R2S", status: "Cancelled", date: "30 MAR 2026" },
   { order: "#ORD8", customer: "أحمد", amount: 250, courier: "Albarq", status: "Pending", date: "31 MAR 2026" },
 
-
-
-];
-
-
-
-
-
-
+]
 
 function OrderRow({ order }) {
   const [isChecked, setIsChecked] = useState(false);
@@ -35,90 +23,47 @@ function OrderRow({ order }) {
   return (
     <ul className={`${styles.orderCard} ${isChecked ? styles.selected : ""}`}>
       <li className={styles.orderId}>
-        <input
-          type="checkbox"
-          checked={isChecked}
-          onChange={(e) => setIsChecked(e.target.checked)}
-        />
+        <input type="checkbox" checked={isChecked} onChange={(e) => setIsChecked(e.target.checked)} />
         <span className={styles.orderIdText}>{order.order}</span>
       </li>
       <li className={styles.customer}>{order.customer}</li>
       <li className={styles.amount}>E£ {order.amount}</li>
       <li className={styles.courier}>{order.courier}</li>
-      <li
-        className={styles.status}
-        style={{
-          color:
-            order.status === "Completed"
-              ? "var(--color-shipped)"
-              : order.status === "Pending"
-                ? "var(--color-transit)"
-                : "var(--color-returned)",
-        }}
-      >
-        <span
-          className={styles.suqre}
-          style={{
-            backgroundColor:
-              order.status === "Completed"
-                ? "var(--color-shipped)"
-                : order.status === "Pending"
-                  ? "var(--color-transit)"
-                  : "var(--color-returned)",
-          }}
-        />
+      <li className={styles.status} style={{ color: order.status === "Completed" ? "var(--color-shipped)" : order.status === "Pending" ? "var(--color-transit)" : "var(--color-returned)" }}>
+        <span className={styles.suqre} style={{ backgroundColor: order.status === "Completed" ? "var(--color-shipped)" : order.status === "Pending" ? "var(--color-transit)" : "var(--color-returned)" }} />
         {order.status}
       </li>
       <li className={styles.date}>{order.date}</li>
-      <li className={styles.Action}>
-        <button type="button">{ellipsis}</button>
-      </li>
+      <li className={styles.Action}><button type="button">{ellipsis}</button></li>
     </ul>
   );
 }
 
-function Table() {
+function TableContent() {
   const [isCheckedAll, setIsCheckedAll] = useState(false);
 
   return (
     <div className={styles.tableContainer}>
       <div className={styles.labels}>
-        <ul>
+        <ul >
           <li className={styles.orderId}>
-            <input
-              type="checkbox"
-              checked={isCheckedAll}
-              onChange={(e) => setIsCheckedAll(e.target.checked)}
-            />
+            <input type="checkbox" checked={isCheckedAll} onChange={(e) => setIsCheckedAll(e.target.checked)} />
             <span>Order</span>
           </li>
-          <li>
-            Customer
-            <button type="button">{sort}</button>
-          </li>
-          <li>
-            Amount <button type="button">{sort}</button>
-          </li>
-          <li>
-            Courier <button type="button">{sort}</button>
-          </li>
-          <li>
-            Status <button type="button">{sort}</button>
-          </li>
-          <li>
-            Date <button type="button">{sort}</button>
-          </li>
-          <li>Actions </li>
+          <li>Customer <button type="button">{sort}</button></li>
+          <li>Amount <button type="button">{sort}</button></li>
+          <li>Courier <button type="button">{sort}</button></li>
+          <li>Status <button type="button">{sort}</button></li>
+          <li>Date <button type="button">{sort}</button></li>
+          <li className={styles.Action}>Actions </li>
         </ul>
         <div className={styles.divider}></div>
       </div>
       <div className={styles.orderTable}>
-        {orders.map((order) => (
-          <OrderRow key={order.order} order={order} />
-        ))}
+        {orders.map((order) => <OrderRow key={order.order} order={order} />)}
       </div>
     </div>
   );
 }
 
-export default memo(Table);
+export default memo(TableContent);

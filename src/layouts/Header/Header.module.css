@@ -45,12 +45,6 @@
     stroke: var(--color-secondary);
 }
 
-.orderCreationBtn:hover {
-    border: 1px var(--color-primary) solid;
-    background-color: var(--color-actions);
-    color: black;
-}
-
 
 
 .notification {

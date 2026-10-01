@@ -5,8 +5,10 @@
     padding: var(--radius-xl);
     display: flex;
     flex-direction: column;
-    gap: 8  px;
+    gap: 8 px;
     min-height: 0;
+    min-height: 310px;
+    min-width: 214px;
 }
 
 .bestSellersHeader {
@@ -19,17 +21,17 @@
     font-weight: 600;
 }
 
-.bestSellersCard{
+.bestSellersCard {
     justify-content: space-between;
     display: flex;
     align-items: center;
     flex: 1;
     font-size: clamp(1rem, 3.5cqh, 1.5rem);
 
-   
+
 }
 
-.bestSellersBody{
+.bestSellersBody {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -43,13 +45,13 @@
     object-fit: cover;
 }
 
-.procutInfo{
+.procutInfo {
     display: flex;
     gap: clamp(8px, 3cqh, 16px);
     align-items: center;
 }
 
-.bestSellersPrice{
+.bestSellersPrice {
     color: gray;
 }
 

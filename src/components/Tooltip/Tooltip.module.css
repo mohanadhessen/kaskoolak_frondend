@@ -27,10 +27,12 @@
      visibility: hidden;
      opacity: 0;
      transition: opacity 0.2s ease;
+     pointer-events: none;
+     
  }
 
-.tooltipContainer:hover .tooltip {
-    visibility: visible;
-    opacity: 1;
-    transition-delay: 1s;
-}
+ .tooltipContainer:hover .tooltip {
+     visibility: visible;
+     opacity: 1;
+     transition-delay: 1s;
+ }

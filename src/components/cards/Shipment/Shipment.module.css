@@ -3,6 +3,6 @@
     background-color: var(--color-card);
     border-radius: var(--radius-md);
     padding: var(--radius-xl);
-    min-height: 0;
-    
+    min-height: 310px;
+    min-width: 214px;
 }

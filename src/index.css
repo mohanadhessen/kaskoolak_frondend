@@ -29,7 +29,7 @@ input {
   outline: none;
   background: none;
   box-shadow: none;
-  width: 100%;
+
 }
 
 
@@ -87,4 +87,8 @@ button {
   font: inherit;
   color: inherit;
   cursor: pointer;
+}
+
+svg {
+  display: block;
 }
