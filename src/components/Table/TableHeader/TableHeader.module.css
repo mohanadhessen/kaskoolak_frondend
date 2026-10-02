@@ -1,20 +1,20 @@
-.TableHeader{
+.TableHeader {
     display: flex;
     justify-content: space-between;
-    padding: var(--radius-xl) ;
+    padding: var(--radius-xl);
     align-items: center;
-    
+
 }
 
 
-.orderActionSection{
+.orderActionSection {
 
     display: flex;
     align-items: center;
     gap: 16px;
 }
 
-.searchBar{
+.searchBar {
     height: fit-content;
     width: fit-content;
     display: flex;
@@ -24,38 +24,27 @@
     gap: 8px;
 }
 
-.leftGroup{
+.leftGroup {
     display: flex;
     gap: 16px;
 }
 
-.filterCardsContainer{
+.filterCardsContainer {
     display: flex;
     gap: 8px;
 }
 
-.filterCard{
-    display: flex;
-    height: fit-content;
-    background-color: var(--color-background);
-    padding:  var(--radius-sm) var(--radius-lg) ;
-    border-radius: var(--radius-xs);
-    gap: 8PX;
-    align-items: center;
-    font-weight: 600;
-    color: gray;
-}
 
-.filterCard button{
+.filterCard button {
     display: flex;
     align-items: center;
 }
 
-.filterCard svg:hover{
-  color: var(--color-returned);
+.filterCard svg:hover {
+    color: var(--color-returned);
 }
 
-.moreFilters{
+.moreFilters {
     height: fit-content;
     background-color: var(--color-actions);
     padding: var(--radius-sm);
@@ -64,13 +53,165 @@
 }
 
 
-.filterWrapper{
+.filterWrapper {
     position: relative;
 }
 
-.filterPopoverContainer{
+.filterPopoverContainer {
+    z-index: 1;
     position: absolute;
     background-color: var(--color-card);
-    padding: var(--radius-lg);
+    padding: var(--radius-xl);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    right: calc(100% - 1.5rem);
+    top: calc(100% + 16px);
+    width: 460px ;
+    display: flex;
+    gap: 32px;
+    flex-direction: column;
+
+}
+
+.filterBody {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+
+.filterFooter {
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+}
+
+
+.filterSection {
+    display: flex;
+    gap: 32px;
+    flex-direction: column;
+}
+
+
+.applyBtn {
+    border-radius: var(--radius-xs);
+    padding: var(--radius-lg);
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.clearBtn {
+    color: gray;
+}
+
+.clearBtn:hover {
+    color: var(--color-returned);
+}
+
+
+.filterCard {
+    display: flex;
+    height: fit-content;
+    background-color: var(--color-background);
+    padding: var(--radius-sm) var(--radius-lg);
+    border-radius: var(--radius-xs);
+    align-items: center;
+    font-weight: 600;
+    color: gray;
+    width: 95px;
+    justify-content: center;
+}
+
+
+
+
+.courierOptions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+}
+
+.courierOptions .filterCard:hover {
+    background-color: var(--color-actions);
+    color: black;
+}
+
+
+
+
+
+
+.amountTrack {
+    position: relative;
+    width: calc(100% - 32px);
+    height: 6px;
+    margin: 0 16px;
+    border-radius: 4px;
+    touch-action: none;
+}
+
+.amountTrack::before {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--color-background);
+    content: "";
+    transform: translateY(-50%);
+}
+
+.amountTrackFill {
+    position: absolute;
+    top: 50%;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--color-primary);
+    transform: translateY(-50%);
+}
+
+.amountThumb {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    box-sizing: border-box;
+    width: 18px;
+    height: 18px;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    background: var(--color-primary);
+    outline: none;
+}
+
+.amountThumb:focus-visible {
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+
+.amountThumbLabel,
+.amountThumbValue {
+    position: absolute;
+    left: 50%;
+    white-space: nowrap;
+    transform: translateX(-50%);
+}
+
+.amountThumbLabel {
+    bottom: 24px;
+    color: gray;
+    font-size: 11px;
+}
+
+.amountThumbValue {
+    top: 22px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.filterFooter button {
+    white-space: nowrap;
+    font-weight: 600;
 }

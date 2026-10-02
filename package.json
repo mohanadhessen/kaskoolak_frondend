@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@coreui/coreui-pro": "^5.27.1",
     "@coreui/react": "^5.13.0",
+    "@coreui/react-pro": "^5.28.1",
     "@dicebear/core": "^10.7.0",
     "@dicebear/styles": "^10.6.0",
     "@iconify-icons/akar-icons": "^2.0.0",
@@ -26,7 +28,8 @@
     "lucide-react": "^1.48.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "react-international-phone": "^4.8.0"
+    "react-international-phone": "^4.8.0",
+    "react-range": "^1.10.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^6.0.4",
