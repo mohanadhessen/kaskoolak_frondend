@@ -2,47 +2,9 @@ import styles from "./TableHeader.module.css";
 import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
 import Tooltip from "../../Tooltip/Tooltip";
-import { Range } from 'react-range'
 
 const searchOptions = ["number", "name", "id"];
 const couriers = ["Aramex", "Bosta", "R2S", "Mylerz", "Albarq", "In Store", "Manual"];
-
-
-
-
-export const RangeSliderLabelsExample = ({ value, onChange }) => {
-  const min = 0
-  const max = 100000
-
-  return <Range
-    values={value}
-    step={1000}
-    min={min}
-    max={max}
-    onChange={onChange}
-    renderTrack={({ props, children }) => {
-      const { key, ...trackProps } = props
-      return <div key={key} className={styles.amountTrack} {...trackProps}>
-        <div className={styles.amountTrackFill} style={{
-          left: `${((value[0] - min) / (max - min)) * 100}%`,
-          width: `${((value[1] - value[0]) / (max - min)) * 100}%`,
-        }} />
-        {children}
-      </div>
-    }}
-    renderThumb={({ props, index }) => {
-      const { key, ...thumbProps } = props
-      return <div key={key} className={styles.amountThumb} {...thumbProps}>
-        <span className={styles.amountThumbLabel}>{index === 0 ? 'Min' : 'Max'}</span>
-        <span className={styles.amountThumbValue}>{value[index].toLocaleString()}</span>
-      </div>
-    }}
-  />
-}
-
-
-
-
 
 
 
@@ -72,8 +34,11 @@ function SearchInput() {
 
 function TableHeader() {
   const [open, SetOpen] = useState(false)
-  const [filters, setFilters] = useState([]);
   const [amountRange, setAmountRange] = useState([0, 100000]);
+  const emptyFilters = { couriers: [], date: null, amount: { min: 0, max: 100000 } };
+
+  const [filters, setFilters] = useState([emptyFilters]);
+  const [draft, setDraft] = useState([emptyFilters])
 
 
   const cancel = <Icon icon="lucide:x" height="1.2rem" />;
@@ -82,25 +47,7 @@ function TableHeader() {
     <div className={styles.leftGroup}>
       <h1>Orders</h1>
       <div className={styles.filterCardsContainer}>
-        {filters.length <= 3
-          ? filters.map((e) => (
-            <div key={e} className={styles.filterCard}>
-              {e} <button onClick={() => setFilters(filters.filter(item => item !== e))}>{cancel}</button>
-            </div>
-          ))
-          : (
-            <>
-              {filters.slice(0, 3).map((e) => (
-                <div key={e} className={styles.filterCard}>
-                  {e} <button onClick={() => setFilters(filters.filter(item => item !== e))}>{cancel}</button>
-                </div>
-              ))}
 
-              <button type="button" className={styles.moreFilters}>
-                +{filters.length - 3}
-              </button>
-            </>
-          )}
       </div>
 
     </div>
@@ -112,6 +59,15 @@ function TableHeader() {
           <div className={styles.filterPopoverContainer}>
 
             <div className={styles.filterBody}>
+              <div className={styles.filterSection}>
+                <h4>Status</h4>
+                <div className={styles.StatusOptions}>
+                  <button className={styles.StatusCard} style={{ color: "var(--color-shipped)" }}><span className={styles.suqre} style={{ backgroundColor: "var(--color-shipped)" }} />Completed</button>
+                  <button className={styles.StatusCard} style={{ color: "var(--color-returned)" }}><span className={styles.suqre} style={{ backgroundColor: "var(--color-returned)" }} />Cancelled</button>
+                  <button className={styles.StatusCard} style={{ color: "var(--color-transit)" }}><span className={styles.suqre} style={{ backgroundColor: "var(--color-transit)" }} />Pending</button>
+                </div>
+              </div>
+
               <div className={styles.filterSection}>
                 <h4>Courier</h4>
                 <div className={styles.courierOptions}>
@@ -126,18 +82,31 @@ function TableHeader() {
               <div className={styles.filterSection}>
                 <h4>Date</h4>
 
-                <div className={styles.courierOptions}>
+                <div className={styles.dateOptions}>
                   {["Today", "This Week", "This Month", "This Year"].map((date) => (
-                    <button key={date} className={styles.filterCard}>
-                      {date}
-                    </button>
+                    <label key={date}>
+                      <div className={styles.dateCard}>
+                        <input
+                          type="radio"
+                          name="date"
+                          value={date}
+                        />
+                        {date}
+                      </div>
+                    </label>
                   ))}
                 </div>
+
+
               </div>
 
               <div className={styles.filterSection}>
                 <h4>Amount</h4>
-                <RangeSliderLabelsExample value={amountRange} onChange={setAmountRange} />
+                <div className={styles.amountOptions}>
+                  <input type="number" placeholder="Min" />
+                  <input type="number" placeholder="Max" />
+                </div>
+
               </div>
             </div>
             <div className={styles.filterFooter}>

@@ -71,3 +71,14 @@
     background-color: var(--color-primary);
     opacity: 0.2;
 }
+
+.status{
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.suqre{
+    width: 8px;
+    aspect-ratio: 1;
+}

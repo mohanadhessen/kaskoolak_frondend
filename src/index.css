@@ -29,9 +29,10 @@ input {
   outline: none;
   background: none;
   box-shadow: none;
-
+  font-weight: 600;
+  color: var(--color-accent);
+  font-size: 14px;
 }
-
 
 input::placeholder {
   font-weight: 600;
@@ -39,12 +40,12 @@ input::placeholder {
   font-size: 14px;
 }
 
-input {
-  font-weight: 600;
-  color: var(--color-accent);
-  font-size: 14px;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
 }
-
 
 select {
   appearance: none;
