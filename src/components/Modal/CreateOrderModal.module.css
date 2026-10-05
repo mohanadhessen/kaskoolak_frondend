@@ -1,0 +1,105 @@
+.modalContainer {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.modalHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.modalHeader h2{
+
+    align-self: center;
+}
+
+.modal {
+    width: 360px;
+    height: 550px;
+    background-color: var(--color-card);
+    border-radius: var(--radius-md);
+    padding: var(--radius-xl);
+
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cancelBtn {
+    font-weight: 600;
+    color: gray;
+}
+
+.cancelBtn:hover{
+    color: var(--color-returned);
+}
+
+.stepsContainer {
+    display: flex;
+    gap: 16px;
+    font-weight: 600;
+    color: gray;
+    justify-content: start;
+    align-items: start;
+}
+
+.stepsContainer button {
+    padding-bottom: var(--radius-md);
+}
+
+.active {
+    border-bottom: 4px var(--color-primary) solid;
+    color: black;
+}
+
+.modalBody {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+}
+
+.navigationBtnContainer {
+    display: flex;
+    gap: 8px;
+
+}
+
+.navigationBtnContainer button {
+    font-weight: 600;
+}
+
+.modalFooter {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nextBtn,
+.backBtn {
+    background-color: var(--color-background);
+    padding: var(--radius-lg) var(--radius-xl);
+
+    border-radius: var(--radius-sm);
+}
+
+.nextBtn {
+    width: 138px;
+    color: white;
+    background-color: var(--color-primary);
+}
+
+.nextBtn:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 85%, black);
+}
+
+.hide{
+    display: none;
+}
+

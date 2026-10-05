@@ -1,56 +1,13 @@
 import styles from "./Header.module.css";
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import Popover from "../../components/Popover/Popover";
+import CreateOrderModal from "../../components/Modal/CreateOrderModal";
 
-
-
-import IntlTelInput from "@intl-tel-input/react";
-import "intl-tel-input/styles";
-
-const PhoneInput = ({ className, placeholder, onChange }) => (
-    <IntlTelInput
-        initialCountry="eg"
-        separateDialCode
-        loadUtils={() => import("intl-tel-input/utils")}
-        inputProps={{ className, placeholder }}
-        onChangeNumber={onChange}
-    />
-);
-
-function Customer() {
-    const [phone, setPhone] = useState("");
-
-    return (
-        <div className={styles.customerContainer}>
-            <div className={styles.namephoneContainer}>
-                <input type="text" className={styles.customerName} placeholder="Customer Name" />
-                <PhoneInput
-                    className={styles.customerPhone}
-                    placeholder="Customer Phone"
-                    onChange={setPhone}
-                />
-
-            </div>
-            <div className={styles.AddressContainer}>
-                <div className={styles.locationInputs}>
-                    <input type="text" className={styles.customerCity} placeholder="City" />
-                    <input type="text" className={styles.customerProvince} placeholder="Province" />
-                </div>
-                <input type="text" className={styles.customerAddress} placeholder="Address" />
-            </div>
-        </div>
-    );
-}
 
 
 
 function Header() {
-    const [currentStep, setCurrentStep] = useState(0);
-    const steps = ["customer", "order", "delivery"];
-
-
-
     const [open, setOpen] = useState(false);
     const [notifications, setNotifications] = useState([
         {
@@ -89,15 +46,15 @@ function Header() {
             time: "5 hours ago",
         },
     ]);
-
     const notificationIconWithDot = <Icon icon="lucide:bell-dot" height="1.5em" />;
     const notificationIcon = <Icon icon="lucide:bell" height="1.5em" />;
     const plusIcon = <Icon icon="lucide:plus" height="1.5em" />;
     const check = <Icon icon="bi:check-all" height="1em" />;
-    const inventory = <Icon icon="iconmind:inventory-count-outline-bold" height="1.5em" />;
-    const finance = <Icon icon="carbon:money" height="1.5em" />;
-    const delivered = <Icon icon="wpf:sent" height="1.5em" />;
+    const clipboardIcon = <Icon icon="lucide:clipboard" height="1.5em" />;
+    const finance = <Icon icon="lucide:wallet" height="1.5em" />;
+    const delivered = <Icon icon="hugeicons:van" height="1.5em" />;
     const info = <Icon icon="lucide:info" height="1.5em" />;
+
 
 
 
@@ -143,7 +100,7 @@ function Header() {
                                             break;
 
                                         case "inventory":
-                                            notificationIcon = inventory;
+                                            notificationIcon = clipboardIcon;
                                             break;
 
                                         case "general":
@@ -196,43 +153,12 @@ function Header() {
 
                     </div>
                 </Popover>
-                <button className={styles.orderCreationBtn} onClick={() => setOpen(!open)}>
+                <button className={styles.orderCreationBtn} onClick={() => setOpen(true)}>
 
                     {plusIcon} Create Order
                 </button>
             </div>
-            {open && (
-                <div className={styles.modalContainer}>
-                    <div className={styles.modalContainerBody}>
-                        <div className={styles.modalHeader}>
-                            <ul className={styles.stepsContainer}>
-                                {steps.map((step, index) => (
-                                    <li key={step} className={currentStep === index ? styles.activeStep : ""}>
-                                        <button
-                                            type="button"
-                                            onClick={() => setCurrentStep(index)}
-                                            aria-current={currentStep === index ? "step" : undefined}
-                                        >
-                                            {step}
-                                        </button>
-                                    </li>
-                                ))}
-                            </ul>
-                            <h2>Create Order</h2>
-                        </div>
-                        <div className={styles.modalBody}>
-                            <Customer />
-                        </div>
-                        <div className={styles.modalFooter}>
-                            <button className={styles.cancelBtn} onClick={() => setOpen(false)}>Cancel</button>
-                            <div className={styles.navigationButtons}>
-                                <button className={`${styles.secondaryModalBtn} ${currentStep === 0 ? styles.hidden : ""}`} onClick={() => setCurrentStep(currentStep + -1)}>Back</button>
-                                <button className={styles.mainModalBtn} onClick={() => setCurrentStep(currentStep + 1)}>Next</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
+            {open && <CreateOrderModal onClose={() => setOpen(false)} />}
         </header>
     );
 }

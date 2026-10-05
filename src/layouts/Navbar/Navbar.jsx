@@ -28,16 +28,16 @@ function Navbar() {
 
 
 
-    let homeIcon = <Icon icon="akar-icons:dashboard" height="1.5em" />;
+    const homeIcon = <Icon icon="lucide:house" height="1.5em" />;
 
-    let vanIcon = <Icon icon="hugeicons:van" height="1.5em" />;
-    let clipboardIcon = <Icon icon="akar-icons:clipboard" height="1.5em" />;
-    let usersIcon = <Icon icon="lucide:users" height="1.5em" />;
-    let settingIcon = <Icon icon="lucide:settings" height="1.5em" />;
-    let analyticIcon = <Icon icon="material-symbols:finance-rounded" height="1.5em" />;
-    let helpIcon = <Icon icon="lucide:headphones" height="1.5em" />;
-    let leftArrow = <Icon icon="lucide:chevron-right" height="1.5em" />;
-    let PanelLeft = <Icon icon="lucide:panel-left" height="1.5em" />;
+    const vanIcon = <Icon icon="hugeicons:van" height="1.5em" />;
+    const clipboardIcon = <Icon icon="lucide:clipboard" height="1.5em" />;
+    const usersIcon = <Icon icon="lucide:users" height="1.5em" />;
+    const settingIcon = <Icon icon="lucide:settings" height="1.5em" />;
+    const analyticIcon = <Icon icon="lucide:wallet" height="1.5em" />;
+    const helpIcon = <Icon icon="lucide:headphones" height="1.5em" />;
+    const leftArrow = <Icon icon="lucide:chevron-right" height="1.5em" />;
+    const PanelLeft = <Icon icon="lucide:panel-left" height="1.5em" />;
 
 
 

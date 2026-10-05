@@ -15,13 +15,20 @@
 }
 
 .searchBar {
-    height: fit-content;
-    width: fit-content;
     display: flex;
     background-color: var(--color-background);
+    padding: var(--radius-lg);
     border-radius: var(--radius-sm);
-    padding: var(--radius-sm);
     gap: 8px;
+    color: #b5b5b5;
+}
+
+.searchBar input {
+    width: 100%;
+}
+
+.searchBar input::placeholder {
+    color: #b5b5b5;
 }
 
 .leftGroup {

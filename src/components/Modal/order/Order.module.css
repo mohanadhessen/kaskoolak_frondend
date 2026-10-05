@@ -1,0 +1,256 @@
+.order {
+    flex: 1;
+    min-height: 0;
+    min-width: 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.searchContainer {
+    display: flex;
+    background-color: var(--color-background);
+    padding: var(--radius-lg);
+    border-radius: var(--radius-sm);
+    gap: 8px;
+    color: #b5b5b5;
+}
+
+.searchContainer input {
+    flex: 1;
+    min-width: 0;
+}
+
+.searchContainer input::placeholder {
+    color: #b5b5b5;
+}
+
+
+.productsEmptyState {
+
+    flex: 1;
+    min-height: 0;
+    min-width: 0;
+    min-width: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+}
+
+
+
+.productsEmptyState svg {
+    color: #b5b5b5;
+}
+
+.EmptyStateTextContainer {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    gap: 8px;
+}
+
+.emptyStateContent {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    gap: 16px;
+
+}
+
+.EmptyStateTextContainer p {
+    display: flex;
+    font-weight: 600;
+    color: #b5b5b5;
+    text-align: center;
+    gap: 6px;
+}
+
+.uploadBtn {
+    font-weight: 600;
+    color: var(--color-clickables);
+
+}
+
+
+
+.productFields,
+.productInfo {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+}
+
+
+
+
+.productFields input {
+    background-color: var(--color-background);
+    padding: var(--radius-lg);
+    border-radius: var(--radius-sm);
+}
+
+
+.productFields input::placeholder {
+    color: #b5b5b5;
+}
+
+
+.productInfo {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    width: 100%;
+    min-width: 0;
+}
+
+.productInfo input:first-child {
+    flex: 3;
+    min-width: 0;
+}
+
+.productInfo input:last-child {
+    flex: 1;
+    min-width: 0;
+}
+
+.save {
+    display: flex;
+    font-weight: 600;
+    color: #b5b5b5;
+    align-items: center;
+    gap: 8px;
+}
+
+
+
+.addItemsBtn {
+    background-color: var(--color-primary);
+    color: white;
+    padding: var(--radius-lg) var(--radius-xl);
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+}
+
+.addItemsBtn:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 85%, black);
+
+}
+
+.addItemsBtn:disabled {
+    background-color: color-mix(in srgb, var(--color-primary) 70%, gray);
+    color: lightgray;
+    cursor: not-allowed;
+}
+
+.addItemsBtn:disabled:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 70%, gray);
+    color: lightgray;
+    cursor: not-allowed;
+
+}
+
+
+.selectedItems {
+    margin-top: auto;
+    padding: var(--radius-lg);
+    width: 100%;
+    justify-content: end;
+    background-color: var(--color-background);
+    font-weight: 600;
+
+}
+
+.selectedItemsEmptyState {
+    color: #b5b5b5;
+}
+
+.selectedItemsContent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.products {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    scrollbar-width: none;
+    gap: 16px;
+}
+
+
+.products::-webkit-scrollbar {
+    display: none;
+}
+
+.productCard{
+    display: flex;
+    justify-content: space-between;
+}
+
+.productCardInfoSection {
+    display: flex;
+    gap: 16px;
+    width: fit-content;
+    
+}
+
+.image {
+    background-color: var(--color-background);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 20px;
+    box-sizing: border-box;
+    color: #b5b5b5;
+    border-radius: var(--radius-xs);
+}
+
+.namePriceContainer {
+    font-weight: 600;
+}
+
+.productPrice {
+    color: #b5b5b5;
+}
+
+
+
+
+
+.productCardActionSection {
+    background-color: var(--color-primary);
+    height: 32px;
+    padding: 0 var(--radius-sm);
+    border-radius: var(--radius-xs);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+}
+
+.productCardActionSection input {
+    width: 40px;
+    text-align: center;
+    color: white;
+}
+
+
+.emptyStateHidden {
+    opacity: 0;
+    transform: translateY(-10px);
+    max-height: 0;
+    pointer-events: none;
+}

@@ -1,5 +1,5 @@
 :root {
-  --color-primary: #0F4C75;
+  --color-primary: #1672A8;
   --color-secondary: #DBE2EF;
   --color-accent: #0b0c0c;
   --color-background: #E8EBEF;
@@ -10,6 +10,8 @@
   --color-transit: #D99B21;
   --color-exception: #B85C38;
   --color-returned: #D64545;
+
+  --color-clickables: #1672A8;
 
   --radius-xs: 4px;
   --radius-sm: 6px;
@@ -92,4 +94,28 @@ button {
 
 svg {
   display: block;
+}
+
+textarea {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  box-shadow: none;
+  font: inherit;
+  color: inherit;
+  resize: none !important;
+}
+
+
+
+
+input[type="checkbox"] {
+  appearance: auto;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  cursor: pointer;
+
 }
