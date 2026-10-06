@@ -22,7 +22,7 @@
 
 .modal {
     width: 360px;
-    height: 550px;
+    height: 540px;
     background-color: var(--color-card);
     border-radius: var(--radius-md);
     padding: var(--radius-xl);
