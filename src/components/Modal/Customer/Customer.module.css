@@ -1,0 +1,310 @@
+.customer {
+    flex: 1;
+    min-height: 0;
+    min-width: 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.searchContainer {
+    display: flex;
+    background-color: var(--color-background);
+    padding: var(--radius-lg);
+    border-radius: var(--radius-sm);
+    gap: 8px;
+    color: #b5b5b5;
+}
+
+.searchContainer input {
+    flex: 1;
+    min-width: 0;
+}
+
+.searchContainer input::placeholder {
+    color: #b5b5b5;
+}
+
+
+.customersEmptyState {
+
+    flex: 1;
+    min-height: 0;
+    min-width: 0;
+    min-width: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+}
+
+
+
+.customersEmptyState svg {
+    color: #b5b5b5;
+}
+
+.emptyStateTextContainer {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    gap: 8px;
+}
+
+.emptyStateContent {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    gap: 16px;
+
+}
+
+.emptyStateTextContainer p {
+    display: flex;
+    font-weight: 600;
+    color: #b5b5b5;
+    text-align: center;
+    gap: 6px;
+}
+
+.uploadCustomersBtn {
+    font-weight: 600;
+    color: var(--color-clickables);
+
+}
+
+
+
+.customerFields,
+.customerInfo {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+}
+
+
+
+
+.customerFields input {
+    background-color: var(--color-background);
+    padding: var(--radius-lg);
+    border-radius: var(--radius-sm);
+}
+
+
+.customerFields input::placeholder {
+    color: #b5b5b5;
+}
+
+
+.customerInfo {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    width: 100%;
+    min-width: 0;
+}
+
+
+
+.saveCustomer {
+    display: flex;
+    font-weight: 600;
+    color: #b5b5b5;
+    align-items: center;
+    gap: 8px;
+}
+
+
+
+.addCustomersBtn {
+    background-color: var(--color-primary);
+    color: white;
+    padding: var(--radius-lg) var(--radius-xl);
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+}
+
+.addCustomersBtn:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 85%, black);
+
+}
+
+.addCustomersBtn:disabled {
+    background-color: color-mix(in srgb, var(--color-primary) 70%, gray);
+    color: lightgray;
+    cursor: not-allowed;
+}
+
+.addCustomersBtn:disabled:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 70%, gray);
+    color: lightgray;
+    cursor: not-allowed;
+
+}
+
+
+.selectedItems {
+    margin-top: auto;
+    padding: var(--radius-lg);
+    width: 100%;
+    justify-content: end;
+    background-color: var(--color-background);
+    font-weight: 600;
+
+}
+
+.selectedItemsEmptyState {
+    color: #b5b5b5;
+}
+
+.selectedItemsContent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.customers {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    scrollbar-width: none;
+    gap: 16px;
+
+}
+
+
+.customers::-webkit-scrollbar {
+    display: none;
+}
+
+.customerCard {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--radius-xs);
+    align-items: center;
+    border-radius: var(--radius-xs);
+    
+}
+
+.selected{
+    background-color: var(--color-actions);
+}
+
+.customerCardInfoSection {
+    display: flex;
+    gap: 16px;
+    width: fit-content;
+
+}
+
+.customerImage {
+    background-color: var(--color-background);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 20px;
+    box-sizing: border-box;
+    color: #b5b5b5;
+    border-radius: var(--radius-xs);
+    object-fit: cover;
+}
+
+.customerDetails {
+    font-weight: 600;
+}
+
+.customerPrice {
+    color: #b5b5b5;
+}
+
+
+
+
+
+
+
+.emptyStateHidden {
+    opacity: 0;
+    transform: translateY(-10px);
+    max-height: 0;
+    pointer-events: none;
+}
+
+.normalState {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.searchbar {
+    background-color: var(--color-background);
+    display: flex;
+    padding: var(--radius-lg);
+    border-radius: var(--radius-xs);
+    gap: 8px;
+    color: #b5b5b5;
+}
+
+
+.searchbar input::placeholder {
+    color: #b5b5b5;
+}
+
+h4 {
+    color: #b5b5b5;
+}
+
+
+
+.normalState {
+    flex: 1;
+    min-height: 0;
+}
+
+
+.productImg {
+    aspect-ratio: 1;
+    height: 32px;
+}
+
+
+.addBtn {
+    width: 72px;
+    font-weight: 600;
+}
+
+.customerCardActions{
+    display: flex;
+}
+
+.customerCardActions input {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #b5b5b5;
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+
+.customerCardActions input:checked {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    box-shadow: inset 0 0 0 3px white;
+}
+
+
+.customerCard:has(input:checked) {
+    background-color: var(--color-actions);
+}

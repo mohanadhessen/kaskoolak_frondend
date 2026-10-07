@@ -10,16 +10,16 @@ import eyelinerImg from "../../../assets/eyeliner-resized-imageresizer.dev.webp"
 
 
 const products = [
-    { id: 1, name: "Blusher", image: blusherImg, price: 120, sold: 320, stock: 48 },
-    { id: 2, name: "Mascara", image: mascaraImg, price: 180, sold: 280, stock: 8 },
-    { id: 3, name: "Eyebrow Gel", image: eyebrowGelImg, price: 95, sold: 240, stock: 65 },
-    { id: 4, name: "Eyeliner", image: eyelinerImg, price: 150, sold: 195, stock: 18 },
-    { id: 5, name: "Lip Gloss", image: "", price: 110, sold: 180, stock: 32 },
-    { id: 6, name: "Foundation", image: "", price: 250, sold: 165, stock: 24 },
-    { id: 7, name: "Concealer", image: "", price: 175, sold: 150, stock: 41 },
-    { id: 8, name: "Highlighter", image: "", price: 135, sold: 125, stock: 27 },
-    { id: 9, name: "Lipstick", image: "", price: 145, sold: 110, stock: 19 },
-    { id: 10, name: "Setting Powder", image: "", price: 160, sold: 95, stock: 36 }
+    // { id: 1, name: "Blusher", image: blusherImg, price: 120, sold: 320, stock: 48 },
+    // { id: 2, name: "Mascara", image: mascaraImg, price: 180, sold: 280, stock: 8 },
+    // { id: 3, name: "Eyebrow Gel", image: eyebrowGelImg, price: 95, sold: 240, stock: 65 },
+    // { id: 4, name: "Eyeliner", image: eyelinerImg, price: 150, sold: 195, stock: 18 },
+    // { id: 5, name: "Lip Gloss", image: "", price: 110, sold: 180, stock: 32 },
+    // { id: 6, name: "Foundation", image: "", price: 250, sold: 165, stock: 24 },
+    // { id: 7, name: "Concealer", image: "", price: 175, sold: 150, stock: 41 },
+    // { id: 8, name: "Highlighter", image: "", price: 135, sold: 125, stock: 27 },
+    // { id: 9, name: "Lipstick", image: "", price: 145, sold: 110, stock: 19 },
+    // { id: 10, name: "Setting Powder", image: "", price: 160, sold: 95, stock: 36 }
 ];
 
 
@@ -66,7 +66,7 @@ function Order() {
                         </div>
                         <div className={styles.save}>
                             <input type="checkbox" id="saveInventory" defaultChecked />
-                            <label htmlFor="saveInventory">Save to inventory</label>
+                            <label htmlFor="saveInventory">Save</label>
                         </div>
                         <button className={styles.addItemsBtn} disabled={!draft.name || !draft.price || !draft.quantity} onClick={() => {
                             setCurrentItems(prev => [...prev, draft]);

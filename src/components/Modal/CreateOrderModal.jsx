@@ -5,6 +5,9 @@ import "intl-tel-input/styles";
 import styles from "./CreateOrderModal.module.css";
 import Order from "./order/Order";
 
+import Customer from "./Customer/Customer";
+
+
 const steps = ["customer", "order", "delivery"];
 
 
@@ -20,7 +23,7 @@ function CreateOrderModal({ onClose }) {
                     <div className={styles.stepsContainer}>
                         {steps.map((step, index) => {
                             return (
-                                <button onClick={() => setCurrentStep(index)} className={currentStep == index ? styles.active : ""}>{step}</button>
+                                <button key={step} onClick={() => setCurrentStep(index)} className={currentStep == index ? styles.active : ""}>{step}</button>
                             )
                         })}
                     </div>
@@ -28,7 +31,9 @@ function CreateOrderModal({ onClose }) {
                 </div>
 
                 <div className={styles.modalBody}>
-                {currentStep == 1 &&<Order/>}
+                    {currentStep == 0 && <Customer />}
+                    {currentStep == 1 && <Order />}
+
                 </div>
 
                 <div className={styles.modalFooter}>
