@@ -6,11 +6,11 @@ import { useState } from "react";
 
 
 const customers = [
-    // { id: 1, name: "عبد الرحمن كمال", phone: "01012345678" },
-    // { id: 2, name: "محمد فاروق", phone: "01123456789" },
-    // { id: 6, name: "حلا احمد", phone: "01298765432" },
-    // { id: 7, name: "بهنس", phone: "01056789123" },
-    // { id: 8, name: "أحمد", phone: "01156789123" }
+    { id: 1, name: "عبد الرحمن كمال", phone: "01012345678" },
+    { id: 2, name: "محمد فاروق", phone: "01123456789" },
+    { id: 6, name: "حلا احمد", phone: "01298765432" },
+    { id: 7, name: "بهنس", phone: "01056789123" },
+    { id: 8, name: "أحمد", phone: "01156789123" }
 ];
 
 
@@ -92,7 +92,7 @@ function Customer() {
                 <div className={styles.normalState}>
                     <div className={styles.searchbar}>
                         {search}
-                        <input type="text" placeholder="Search for customers"
+                        <input type="text" placeholder="search by phone or name"
                         />
                     </div>
                     <h4>Customers</h4>

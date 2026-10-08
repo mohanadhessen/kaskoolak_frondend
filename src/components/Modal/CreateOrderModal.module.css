@@ -15,7 +15,7 @@
     gap: 16px;
 }
 
-.modalHeader h2{
+.modalHeader h2 {
 
     align-self: center;
 }
@@ -38,7 +38,7 @@
     color: gray;
 }
 
-.cancelBtn:hover{
+.cancelBtn:hover {
     color: var(--color-returned);
 }
 
@@ -99,7 +99,37 @@
     background-color: color-mix(in srgb, var(--color-primary) 85%, black);
 }
 
-.hide{
+.hide {
     display: none;
 }
 
+
+
+.CreateOrderBtn {
+    display: flex;
+    background-color: var(--color-background);
+    padding: var(--radius-lg) var(--radius-xl);
+    width: 138px;
+    color: white;
+    background-color: var(--color-primary);
+    border-radius: var(--radius-sm);
+    justify-content: center;
+    align-items: center;
+    height: 36px;
+}
+
+
+
+.CreateOrderBtn:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 85%, black);
+}
+
+
+.CreateOrderBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.CreateOrderBtn:disabled:hover {
+    background-color: var(--color-primary);
+}

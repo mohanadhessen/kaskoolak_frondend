@@ -1,0 +1,111 @@
+.Delivery {
+    flex: 1;
+    min-height: 0;
+    min-width: 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+.inptFiled input {
+    background-color: var(--color-background);
+    padding: var(--radius-lg);
+    border-radius: var(--radius-sm);
+    width: 100%;
+
+}
+
+
+.inptFiled input::placeholder {
+    color: #b5b5b5;
+}
+
+
+.cityAndGoverement {
+    display: flex;
+    gap: 16px;
+}
+
+.courier {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+    scrollbar-width: none;
+}
+
+.courier::-webkit-scrollbar {
+    display: none;
+}
+
+.courierCard {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--radius-lg);
+    align-items: center;
+    border-radius: var(--radius-sm);
+}
+
+.courierCardInfoSection {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.courierImage {
+    background-color: var(--color-background);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    color: #b5b5b5;
+    border-radius: var(--radius-xs);
+}
+
+.courierImage img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.courierDetails {
+    font-weight: 600;
+}
+
+.courierPrice {
+    color: #b5b5b5;
+}
+
+.courierCardActions {
+    display: flex;
+}
+
+.courierCardActions input {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #b5b5b5;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.courierCardActions input:checked {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    box-shadow: inset 0 0 0 3px white;
+}
+
+.courierCard:has(input:checked) {
+    background-color: var(--color-actions);
+}
+
+
+.Bosta svg{
+    color: aqua;
+}

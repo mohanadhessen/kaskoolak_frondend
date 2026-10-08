@@ -145,15 +145,12 @@
 }
 
 .addItemsBtn:disabled {
-    background-color: color-mix(in srgb, var(--color-primary) 70%, gray);
-    color: lightgray;
+    opacity: 0.6;
     cursor: not-allowed;
 }
 
 .addItemsBtn:disabled:hover {
-    background-color: color-mix(in srgb, var(--color-primary) 70%, gray);
-    color: lightgray;
-    cursor: not-allowed;
+    background-color: var(--color-primary);
 
 }
 
@@ -184,8 +181,8 @@
     height: 100%;
     overflow: auto;
     scrollbar-width: none;
-    gap: 16px;
-   
+
+
 }
 
 
@@ -196,6 +193,7 @@
 .productCard {
     display: flex;
     justify-content: space-between;
+    padding: var(--radius-lg);
 }
 
 .productCardInfoSection {
@@ -289,13 +287,13 @@ h4 {
 }
 
 
-.productImg{
+.productImg {
     aspect-ratio: 1;
     height: 32px;
 }
 
 
-.addBtn{
+.addBtn {
     width: 72px;
     font-weight: 600;
 }

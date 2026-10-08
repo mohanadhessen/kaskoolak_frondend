@@ -137,18 +137,13 @@
 }
 
 .addCustomersBtn:disabled {
-    background-color: color-mix(in srgb, var(--color-primary) 70%, gray);
-    color: lightgray;
+    opacity: 0.6;
     cursor: not-allowed;
 }
 
-.addCustomersBtn:disabled:hover {
-    background-color: color-mix(in srgb, var(--color-primary) 70%, gray);
-    color: lightgray;
-    cursor: not-allowed;
-
+.addCustomersBtn:disabled:hover{
+    background-color: var(--color-primary);
 }
-
 
 .selectedItems {
     margin-top: auto;
@@ -176,7 +171,7 @@
     height: 100%;
     overflow: auto;
     scrollbar-width: none;
-    gap: 16px;
+    /* gap: 16px; */
 
 }
 
@@ -188,13 +183,13 @@
 .customerCard {
     display: flex;
     justify-content: space-between;
-    padding: var(--radius-xs);
+    padding: var(--radius-lg);
     align-items: center;
-    border-radius: var(--radius-xs);
-    
+    border-radius: var(--radius-sm);
+
 }
 
-.selected{
+.selected {
     background-color: var(--color-actions);
 }
 
@@ -284,7 +279,7 @@ h4 {
     font-weight: 600;
 }
 
-.customerCardActions{
+.customerCardActions {
     display: flex;
 }
 
