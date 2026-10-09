@@ -30,8 +30,8 @@ function CreateOrderModal({ onClose }) {
 
 
     return (
-        <div className={styles.modalContainer}>
-            <div className={styles.modal}>
+        <div className={styles.modalContainer} onClick={onClose}>
+            <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
                 <div className={styles.modalHeader}>
                     <div className={styles.stepsContainer}>
                         {steps.map((step, index) => {

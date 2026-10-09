@@ -28,17 +28,13 @@
     justify-content: center;
     gap: 8px;
     background-color: var(--color-primary);
-    border-radius: var(--radius-sm);
-    border: none;
-    outline: none;
+    border-radius: var(--radius-xs);
     color: var(--color-card);
-
-    font-family: inherit;
-    font-size: clamp(13px, 1vw, 16px);
+    font-size: 16px;
     font-weight: 600;
-    line-height: 1;
-    cursor: pointer;
+    width: 170px;   
 }
+
 
 .orderCreationBtn svg {
     stroke: var(--color-secondary);
